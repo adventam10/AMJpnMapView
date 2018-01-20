@@ -7,6 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E47522620131519002EA382 /* AMJpnMapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47522420131519002EA382 /* AMJpnMapDetailView.swift */; };
+		0E47522A20131629002EA382 /* AMJMRegionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47522920131629002EA382 /* AMJMRegionLayer.swift */; };
+		0E47522C20131662002EA382 /* AMJMHokkaidoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47522B20131662002EA382 /* AMJMHokkaidoLayer.swift */; };
+		0E47522E2013168D002EA382 /* AMJMTohokuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47522D2013168D002EA382 /* AMJMTohokuLayer.swift */; };
+		0E475230201316BB002EA382 /* AMJMKantoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47522F201316BB002EA382 /* AMJMKantoLayer.swift */; };
+		0E475232201316DB002EA382 /* AMJMChubuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E475231201316DB002EA382 /* AMJMChubuLayer.swift */; };
+		0E475234201316EC002EA382 /* AMJMKinkiLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E475233201316EC002EA382 /* AMJMKinkiLayer.swift */; };
+		0E475236201316FE002EA382 /* AMJMChugokuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E475235201316FE002EA382 /* AMJMChugokuLayer.swift */; };
+		0E4752382013170F002EA382 /* AMJMShikokuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E4752372013170F002EA382 /* AMJMShikokuLayer.swift */; };
+		0E47523A20131722002EA382 /* AMJMKyushuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47523920131722002EA382 /* AMJMKyushuLayer.swift */; };
+		0E47523C20138637002EA382 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E47523B20138637002EA382 /* SecondViewController.swift */; };
 		0E9A08B62003774B00DD65DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9A08B52003774B00DD65DB /* AppDelegate.swift */; };
 		0E9A08B82003774B00DD65DB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E9A08B72003774B00DD65DB /* ViewController.swift */; };
 		0E9A08BB2003774B00DD65DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9A08B92003774B00DD65DB /* Main.storyboard */; };
@@ -16,6 +27,17 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E47522420131519002EA382 /* AMJpnMapDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJpnMapDetailView.swift; sourceTree = "<group>"; };
+		0E47522920131629002EA382 /* AMJMRegionLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMRegionLayer.swift; sourceTree = "<group>"; };
+		0E47522B20131662002EA382 /* AMJMHokkaidoLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMHokkaidoLayer.swift; sourceTree = "<group>"; };
+		0E47522D2013168D002EA382 /* AMJMTohokuLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMTohokuLayer.swift; sourceTree = "<group>"; };
+		0E47522F201316BB002EA382 /* AMJMKantoLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMKantoLayer.swift; sourceTree = "<group>"; };
+		0E475231201316DB002EA382 /* AMJMChubuLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMChubuLayer.swift; sourceTree = "<group>"; };
+		0E475233201316EC002EA382 /* AMJMKinkiLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMKinkiLayer.swift; sourceTree = "<group>"; };
+		0E475235201316FE002EA382 /* AMJMChugokuLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMChugokuLayer.swift; sourceTree = "<group>"; };
+		0E4752372013170F002EA382 /* AMJMShikokuLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMShikokuLayer.swift; sourceTree = "<group>"; };
+		0E47523920131722002EA382 /* AMJMKyushuLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMKyushuLayer.swift; sourceTree = "<group>"; };
+		0E47523B20138637002EA382 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		0E9A08B22003774B00DD65DB /* SampleAMJpnMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleAMJpnMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E9A08B52003774B00DD65DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E9A08B72003774B00DD65DB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +59,31 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E47522320131519002EA382 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0E47522420131519002EA382 /* AMJpnMapDetailView.swift */,
+				0E47522520131519002EA382 /* Layer */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		0E47522520131519002EA382 /* Layer */ = {
+			isa = PBXGroup;
+			children = (
+				0E47522920131629002EA382 /* AMJMRegionLayer.swift */,
+				0E47522B20131662002EA382 /* AMJMHokkaidoLayer.swift */,
+				0E47522D2013168D002EA382 /* AMJMTohokuLayer.swift */,
+				0E47522F201316BB002EA382 /* AMJMKantoLayer.swift */,
+				0E475231201316DB002EA382 /* AMJMChubuLayer.swift */,
+				0E475233201316EC002EA382 /* AMJMKinkiLayer.swift */,
+				0E475235201316FE002EA382 /* AMJMChugokuLayer.swift */,
+				0E4752372013170F002EA382 /* AMJMShikokuLayer.swift */,
+				0E47523920131722002EA382 /* AMJMKyushuLayer.swift */,
+			);
+			path = Layer;
+			sourceTree = "<group>";
+		};
 		0E9A08A92003774B00DD65DB = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +106,7 @@
 				0E9A08C72003776C00DD65DB /* AMJpnMapView */,
 				0E9A08B52003774B00DD65DB /* AppDelegate.swift */,
 				0E9A08B72003774B00DD65DB /* ViewController.swift */,
+				0E47523B20138637002EA382 /* SecondViewController.swift */,
 				0E9A08B92003774B00DD65DB /* Main.storyboard */,
 				0E9A08BC2003774B00DD65DB /* Assets.xcassets */,
 				0E9A08BE2003774B00DD65DB /* LaunchScreen.storyboard */,
@@ -71,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				0E9A08C82003776C00DD65DB /* AMJpnMapView.swift */,
+				0E47522320131519002EA382 /* Detail */,
 			);
 			path = AMJpnMapView;
 			sourceTree = "<group>";
@@ -147,9 +196,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E47523A20131722002EA382 /* AMJMKyushuLayer.swift in Sources */,
 				0E9A08B82003774B00DD65DB /* ViewController.swift in Sources */,
+				0E47522620131519002EA382 /* AMJpnMapDetailView.swift in Sources */,
+				0E47522E2013168D002EA382 /* AMJMTohokuLayer.swift in Sources */,
+				0E47523C20138637002EA382 /* SecondViewController.swift in Sources */,
+				0E475234201316EC002EA382 /* AMJMKinkiLayer.swift in Sources */,
+				0E47522C20131662002EA382 /* AMJMHokkaidoLayer.swift in Sources */,
 				0E9A08B62003774B00DD65DB /* AppDelegate.swift in Sources */,
+				0E47522A20131629002EA382 /* AMJMRegionLayer.swift in Sources */,
+				0E475232201316DB002EA382 /* AMJMChubuLayer.swift in Sources */,
+				0E475230201316BB002EA382 /* AMJMKantoLayer.swift in Sources */,
+				0E4752382013170F002EA382 /* AMJMShikokuLayer.swift in Sources */,
 				0E9A08C92003776C00DD65DB /* AMJpnMapView.swift in Sources */,
+				0E475236201316FE002EA382 /* AMJMChugokuLayer.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -286,6 +346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SampleAMJpnMap/Info.plist;
@@ -302,6 +363,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = SampleAMJpnMap/Info.plist;

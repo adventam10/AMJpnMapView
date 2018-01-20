@@ -48,6 +48,7 @@ class ViewController: UIViewController, AMJpnMapViewDelegate {
         jView3.setStrokeColor(color: UIColor.clear, region: .shikoku)
         jView3.setStrokeColor(color: UIColor.clear, region: .kyushu)
     }
+    
     func jpnMapView(jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion) {
         
         if jpnMapView == jView1 {
