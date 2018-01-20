@@ -8,5 +8,7 @@
 # Variety
 <img width="372" alt="map" src="https://user-images.githubusercontent.com/34936885/34912802-32b90aa4-f92d-11e7-9151-fabee4ce924d.png">
 
+<img width="372" alt="map_detail" src="https://user-images.githubusercontent.com/34936885/35184554-875e5c64-fe3a-11e7-8bde-b94aca259317.png">
+
 # License
 MIT
