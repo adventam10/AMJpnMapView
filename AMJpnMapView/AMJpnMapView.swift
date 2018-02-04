@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AMJMRegion: Int {
+public enum AMJMRegion: Int {
     case none = -1
     case hokkaido = 0
     case tohoku = 1
@@ -58,15 +58,15 @@ enum AMJMRegion: Int {
     }
 }
 
-protocol AMJpnMapViewDelegate: class {
+public protocol AMJpnMapViewDelegate: class {
     
     func jpnMapView(jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion)
     func jpnMapView(jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMJMRegion)
 }
 
-@IBDesignable class AMJpnMapView: UIView {
+@IBDesignable public class AMJpnMapView: UIView {
 
-    override var bounds: CGRect {
+    override public var bounds: CGRect {
         
         didSet {
             
@@ -76,56 +76,44 @@ protocol AMJpnMapViewDelegate: class {
         }
     }
     
-    weak var delegate:AMJpnMapViewDelegate?
+    weak public var delegate:AMJpnMapViewDelegate?
     
-    @IBInspectable var strokeColor:UIColor = UIColor.green
+    @IBInspectable public var strokeColor:UIColor = UIColor.green
     
-    @IBInspectable var fillColor:UIColor = UIColor.green
+    @IBInspectable public var fillColor:UIColor = UIColor.green
     
-    @IBInspectable var strokeColorOkinawaLine:UIColor = UIColor.black
+    @IBInspectable public var strokeColorOkinawaLine:UIColor = UIColor.black
     
-    /// 地図の大きさ
     private var mapSize:CGFloat = 0
     
-    /// 北海道描画用レイヤー
     private var layerHokkaido:CAShapeLayer?
     
-    /// 東北描画用レイヤー
     private var layerTohoku:CAShapeLayer?
-    
-    /// 関東描画用レイヤー
+
     private var layerKanto:CAShapeLayer?
     
-    /// 中部描画用レイヤー
     private var layerChubu:CAShapeLayer?
     
-    /// 近畿描画用レイヤー
     private var layerKinki:CAShapeLayer?
     
-    /// 中国描画用レイヤー
     private var layerChugoku:CAShapeLayer?
     
-    /// 四国描画用レイヤー
     private var layerShikoku:CAShapeLayer?
     
-    /// 九州描画用レイヤー
     private var layerKyushu:CAShapeLayer?
     
-    /// 沖縄描画用レイヤー（九州レイヤーにのせる）
     private var layerOkinawa:CAShapeLayer?
     
-    /// 拡大時の起点リスト
     private var anchorPointList = [CGPoint]()
     
     private var regionLayers = [CAShapeLayer]()
     
-    /// 沖縄の区切り線
     private var layerOkinawaLine:CAShapeLayer?
     
     private var preSelectRegion:AMJMRegion = .none
     
     //MARK:Initialize
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         
         super.init(coder:aDecoder)
         initView()
@@ -149,7 +137,7 @@ protocol AMJpnMapViewDelegate: class {
         addGestureRecognizer(tap)
     }
 
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         
         mapSize = (rect.width < rect.height) ? rect.width : rect.height
         clear()
@@ -300,44 +288,44 @@ protocol AMJpnMapViewDelegate: class {
         pointList.append(createPoint(x: 362, y: 151))
         pointList.append(createPoint(x: 371, y: 150))
         pointList.append(createPoint(x: 369, y: 172))
-        pointList.append(createPoint(x: 373, y: 179))// 青森・岩手
+        pointList.append(createPoint(x: 373, y: 179))// Aomori・Iwate
         pointList.append(createPoint(x: 379, y: 184))
         pointList.append(createPoint(x: 384, y: 206))
         pointList.append(createPoint(x: 378, y: 225))
-        pointList.append(createPoint(x: 374, y: 230))// 岩手・宮城
+        pointList.append(createPoint(x: 374, y: 230))// Iwate・Miyagi
         pointList.append(createPoint(x: 368, y: 236))
         pointList.append(createPoint(x: 369, y: 251))
         pointList.append(createPoint(x: 363, y: 247))
         pointList.append(createPoint(x: 359, y: 249))
         pointList.append(createPoint(x: 356, y: 253))
-        pointList.append(createPoint(x: 356, y: 263))// 宮城・福島
+        pointList.append(createPoint(x: 356, y: 263))// Miyagi・Fukushima
         pointList.append(createPoint(x: 358, y: 273))
-        /// 関東との接点
-        pointList.append(createPoint(x: 355, y: 292))//福島・茨城
+        /// point of contact with Kanto
+        pointList.append(createPoint(x: 355, y: 292))//Fukushima・Ibaraki
         pointList.append(createPoint(x: 347, y: 296))
         pointList.append(createPoint(x: 346, y: 297))
-        pointList.append(createPoint(x: 340, y: 296))//福島・茨城・栃木
+        pointList.append(createPoint(x: 340, y: 296))//Fukushima・Ibaraki・Tochigi
         pointList.append(createPoint(x: 337, y: 294))
         pointList.append(createPoint(x: 337, y: 290))
         pointList.append(createPoint(x: 329, y: 286))
-        pointList.append(createPoint(x: 321, y: 292))//福島・群馬・栃木
-        /// 関東・中部との接点
-        pointList.append(createPoint(x: 313, y: 292))//福島・群馬・新潟
-        /// 中部との接点
+        pointList.append(createPoint(x: 321, y: 292))//Fukushima・Gunma・Tochigi
+        /// point of contact with Kanto, Chubu
+        pointList.append(createPoint(x: 313, y: 292))//Fukushima・Gunma・Niigata
+        /// point of contact with Chubu
         pointList.append(createPoint(x: 312, y: 277))
         pointList.append(createPoint(x: 321, y: 275))
-        pointList.append(createPoint(x: 326, y: 266))// 山形・福島・新潟
+        pointList.append(createPoint(x: 326, y: 266))// Yamagata・Fukushima・Niigata
         pointList.append(createPoint(x: 325, y: 261))
         pointList.append(createPoint(x: 328, y: 249))
-        pointList.append(createPoint(x: 322, y: 242))// 山形・新潟
+        pointList.append(createPoint(x: 322, y: 242))// Yamagata・Niigata
         pointList.append(createPoint(x: 328, y: 230))
-        pointList.append(createPoint(x: 328, y: 225))// 秋田・山形
+        pointList.append(createPoint(x: 328, y: 225))// Akita・Yamagata
         pointList.append(createPoint(x: 334, y: 207))
         pointList.append(createPoint(x: 332, y: 198))
         pointList.append(createPoint(x: 325, y: 200))
         pointList.append(createPoint(x: 323, y: 196))
         pointList.append(createPoint(x: 329, y: 193))
-        pointList.append(createPoint(x: 332, y: 180))// 青森・秋田
+        pointList.append(createPoint(x: 332, y: 180))// Aomori・Akita
         pointList.append(createPoint(x: 331, y: 172))
         pointList.append(createPoint(x: 339, y: 168))
         pointList.append(createPoint(x: 341, y: 154))
@@ -365,17 +353,17 @@ protocol AMJpnMapViewDelegate: class {
     private func drawKanto() {
         
         var pointList = [CGPoint]()
-        /// 東北・中部との接点
-        pointList.append(createPoint(x: 313, y: 292))//福島・群馬・新潟
-        /// 東北との接点
-        pointList.append(createPoint(x: 321, y: 292))//福島・群馬・栃木
+        /// point of contact with Tohoku, Chubu
+        pointList.append(createPoint(x: 313, y: 292))//Fukushima・Gunma・Niigata
+        /// point of contact with Tohoku
+        pointList.append(createPoint(x: 321, y: 292))//Fukushima・Gunma・Tochigi
         pointList.append(createPoint(x: 329, y: 286))
         pointList.append(createPoint(x: 337, y: 290))
         pointList.append(createPoint(x: 337, y: 294))
-        pointList.append(createPoint(x: 340, y: 296))//福島・茨城・栃木
+        pointList.append(createPoint(x: 340, y: 296))//Fukushima・Ibaraki・Tochigi
         pointList.append(createPoint(x: 346, y: 297))
         pointList.append(createPoint(x: 347, y: 296))
-        pointList.append(createPoint(x: 355, y: 292))//福島・茨城
+        pointList.append(createPoint(x: 355, y: 292))//Fukushima・Ibaraki
         pointList.append(createPoint(x: 345, y: 315))
         pointList.append(createPoint(x: 353, y: 331))
         pointList.append(createPoint(x: 343, y: 335))
@@ -384,25 +372,25 @@ protocol AMJpnMapViewDelegate: class {
         pointList.append(createPoint(x: 327, y: 343))
         pointList.append(createPoint(x: 334, y: 338))
         pointList.append(createPoint(x: 333, y: 333))
-        pointList.append(createPoint(x: 329, y: 334))// 東京・千葉
-        pointList.append(createPoint(x: 327, y: 335))// 東京・神奈川
+        pointList.append(createPoint(x: 329, y: 334))// Tokyo・Chiba
+        pointList.append(createPoint(x: 327, y: 335))// Tokyo・Kanagawa
         pointList.append(createPoint(x: 324, y: 342))
         pointList.append(createPoint(x: 326, y: 346))
         pointList.append(createPoint(x: 322, y: 349))
         pointList.append(createPoint(x: 321, y: 345))
         pointList.append(createPoint(x: 312, y: 345))
-        /// 中部との接点
-        pointList.append(createPoint(x: 308, y: 350))// 神奈川・静岡
+        /// point of contact with Chubu
+        pointList.append(createPoint(x: 308, y: 350))// Kanagawa・Shizuoka
         pointList.append(createPoint(x: 308, y: 343))
         pointList.append(createPoint(x: 305, y: 341))
-        pointList.append(createPoint(x: 310, y: 334))// 神奈川・静岡・山梨
-        pointList.append(createPoint(x: 312, y: 332))// 神奈川・東京・山梨
-        pointList.append(createPoint(x: 306, y: 327))// 東京・埼玉・山梨
-        pointList.append(createPoint(x: 297, y: 323))// 埼玉・山梨・長野
-        pointList.append(createPoint(x: 300, y: 321))// 埼玉・群馬・長野
+        pointList.append(createPoint(x: 310, y: 334))// Kanagawa・Shizuoka・Yamanashi
+        pointList.append(createPoint(x: 312, y: 332))// Kanagawa・Tokyo・Yamanashi
+        pointList.append(createPoint(x: 306, y: 327))// Tokyo・Saitama・Yamanashi
+        pointList.append(createPoint(x: 297, y: 323))// Saitama・Yamanashi・Nagano
+        pointList.append(createPoint(x: 300, y: 321))// Saitama・Gunma・Nagano
         pointList.append(createPoint(x: 297, y: 319))
         pointList.append(createPoint(x: 298, y: 309))
-        pointList.append(createPoint(x: 292, y: 306))// 群馬・長野・新潟
+        pointList.append(createPoint(x: 292, y: 306))// Gunma・Nagano・Niigata
         pointList.append(createPoint(x: 303, y: 297))
         pointList.append(createPoint(x: 308, y: 291))
         
@@ -421,29 +409,29 @@ protocol AMJpnMapViewDelegate: class {
     private func drawChubu() {
         
         var pointList = [CGPoint]()
-        /// 東北との接点
-        pointList.append(createPoint(x: 322, y: 242))// 山形・新潟
+        /// point of contact with Tohoku
+        pointList.append(createPoint(x: 322, y: 242))// Yamagata・Niigata
         pointList.append(createPoint(x: 328, y: 249))
         pointList.append(createPoint(x: 325, y: 261))
-        pointList.append(createPoint(x: 326, y: 266))// 山形・福島・新潟
+        pointList.append(createPoint(x: 326, y: 266))// Yamagata・Fukushima・Niigata
         pointList.append(createPoint(x: 321, y: 275))
         pointList.append(createPoint(x: 312, y: 277))
-        /// 東北・中部との接点
-        pointList.append(createPoint(x: 313, y: 292))//福島・群馬・新潟
-        //// 関東との接点
+        /// point of contact with Tohoku, Chubu
+        pointList.append(createPoint(x: 313, y: 292))//Fukushima・Gunma・Niigata
+        //// point of contact with Kanto
         pointList.append(createPoint(x: 308, y: 291))
         pointList.append(createPoint(x: 303, y: 297))
-        pointList.append(createPoint(x: 292, y: 306))// 群馬・長野・新潟
+        pointList.append(createPoint(x: 292, y: 306))// Gunma・Nagano・Niigata
         pointList.append(createPoint(x: 298, y: 309))
         pointList.append(createPoint(x: 297, y: 319))
-        pointList.append(createPoint(x: 300, y: 321))// 埼玉・群馬・長野
-        pointList.append(createPoint(x: 297, y: 323))// 埼玉・山梨・長野
-        pointList.append(createPoint(x: 306, y: 327))// 東京・埼玉・山梨
-        pointList.append(createPoint(x: 312, y: 332))// 神奈川・東京・山梨
-        pointList.append(createPoint(x: 310, y: 334))// 神奈川・静岡・山梨
+        pointList.append(createPoint(x: 300, y: 321))// Saitama・Gunma・Nagano
+        pointList.append(createPoint(x: 297, y: 323))// Saitama・Yamanashi・Nagano
+        pointList.append(createPoint(x: 306, y: 327))// Tokyo・Saitama・Yamanashi
+        pointList.append(createPoint(x: 312, y: 332))// Kanagawa・Tokyo・Yamanashi
+        pointList.append(createPoint(x: 310, y: 334))// Kanagawa・Shizuoka・Yamanashi
         pointList.append(createPoint(x: 305, y: 341))
         pointList.append(createPoint(x: 308, y: 343))
-        pointList.append(createPoint(x: 308, y: 350))// 神奈川・静岡
+        pointList.append(createPoint(x: 308, y: 350))// Kanagawa・Shizuoka
         pointList.append(createPoint(x: 311, y: 355))
         pointList.append(createPoint(x: 304, y: 365))
         pointList.append(createPoint(x: 300, y: 362))
@@ -451,7 +439,7 @@ protocol AMJpnMapViewDelegate: class {
         pointList.append(createPoint(x: 305, y: 351))
         pointList.append(createPoint(x: 297, y: 349))
         pointList.append(createPoint(x: 284, y: 365))
-        pointList.append(createPoint(x: 270, y: 364))// 愛知・静岡
+        pointList.append(createPoint(x: 270, y: 364))// Aichi・Shizuoka
         pointList.append(createPoint(x: 258, y: 366))
         pointList.append(createPoint(x: 265, y: 361))
         pointList.append(createPoint(x: 259, y: 360))
@@ -459,41 +447,41 @@ protocol AMJpnMapViewDelegate: class {
         pointList.append(createPoint(x: 257, y: 363))
         pointList.append(createPoint(x: 252, y: 360))
         pointList.append(createPoint(x: 253, y: 353))
-        pointList.append(createPoint(x: 250, y: 351))// 愛知・三重
+        pointList.append(createPoint(x: 250, y: 351))// Aichi・Mie
         pointList.append(createPoint(x: 244, y: 363))
         pointList.append(createPoint(x: 254, y: 369))
         pointList.append(createPoint(x: 253, y: 375))
         pointList.append(createPoint(x: 240, y: 378))
         pointList.append(createPoint(x: 239, y: 383))
-        /// 近畿との接点
-        pointList.append(createPoint(x: 231, y: 391))//和歌山・三重
-        pointList.append(createPoint(x: 228, y: 387))// 和歌山・三重・奈良
+        /// point of contact with Kinki
+        pointList.append(createPoint(x: 231, y: 391))//Wakayama・Mie
+        pointList.append(createPoint(x: 228, y: 387))// Wakayama・Mie・Nara
         pointList.append(createPoint(x: 234, y: 381))
         pointList.append(createPoint(x: 233, y: 372))
         pointList.append(createPoint(x: 237, y: 370))
-        pointList.append(createPoint(x: 232, y: 361))// 京都・三重・奈良
-        pointList.append(createPoint(x: 234, y: 360))// 京都・三重・滋賀
+        pointList.append(createPoint(x: 232, y: 361))// Kyoto・Mie・Nara
+        pointList.append(createPoint(x: 234, y: 360))// Kyoto・Mie・Shiga
         pointList.append(createPoint(x: 244, y: 347))
-        pointList.append(createPoint(x: 242, y: 346))// 岐阜・三重・滋賀
-        pointList.append(createPoint(x: 239, y: 333))// 岐阜・福井・滋賀
+        pointList.append(createPoint(x: 242, y: 346))// Gifu・Mie・Shiga
+        pointList.append(createPoint(x: 239, y: 333))// Gifu・Fukui・Shiga
         pointList.append(createPoint(x: 228, y: 338))
-        pointList.append(createPoint(x: 225, y: 343))// 京都・福井・滋賀
+        pointList.append(createPoint(x: 225, y: 343))// Kyoto・Fukui・Shiga
         pointList.append(createPoint(x: 222, y: 343))
-        pointList.append(createPoint(x: 215, y: 339))// 京都・福井
+        pointList.append(createPoint(x: 215, y: 339))// Kyoto・Fukui
         pointList.append(createPoint(x: 222, y: 337))
         pointList.append(createPoint(x: 233, y: 330))
         pointList.append(createPoint(x: 228, y: 323))
-        pointList.append(createPoint(x: 238, y: 313))// 福井・石川
+        pointList.append(createPoint(x: 238, y: 313))// Fukui・Ishikawa
         pointList.append(createPoint(x: 255, y: 290))
         pointList.append(createPoint(x: 249, y: 282))
         pointList.append(createPoint(x: 265, y: 274))
         pointList.append(createPoint(x: 264, y: 281))
         pointList.append(createPoint(x: 258, y: 284))
-        pointList.append(createPoint(x: 258, y: 291))// 石川・富山
+        pointList.append(createPoint(x: 258, y: 291))// Ishikawa・Toyama
         pointList.append(createPoint(x: 258, y: 297))
         pointList.append(createPoint(x: 266, y: 298))
         pointList.append(createPoint(x: 266, y: 293))
-        pointList.append(createPoint(x: 274, y: 291))// 新潟・富山
+        pointList.append(createPoint(x: 274, y: 291))// Niigata・Toyama
         pointList.append(createPoint(x: 292, y: 282))
         pointList.append(createPoint(x: 302, y: 266))
         pointList.append(createPoint(x: 313, y: 259))
@@ -513,38 +501,38 @@ protocol AMJpnMapViewDelegate: class {
     private func drawKinki() {
         
         var pointList = [CGPoint]()
-        // 中部との接点
-        pointList.append(createPoint(x: 215, y: 339))// 京都・福井
+        // point of contact with Chubu
+        pointList.append(createPoint(x: 215, y: 339))// Kyoto・Fukui
         pointList.append(createPoint(x: 222, y: 343))
-        pointList.append(createPoint(x: 225, y: 343))// 京都・福井・滋賀
+        pointList.append(createPoint(x: 225, y: 343))// Kyoto・Fukui・Shiga
         pointList.append(createPoint(x: 228, y: 338))
-        pointList.append(createPoint(x: 239, y: 333))// 岐阜・福井・滋賀
-        pointList.append(createPoint(x: 242, y: 346))// 岐阜・三重・滋賀
+        pointList.append(createPoint(x: 239, y: 333))// Gifu・Fukui・Shiga
+        pointList.append(createPoint(x: 242, y: 346))// Gifu・Mie・Shiga
         pointList.append(createPoint(x: 244, y: 347))
-        pointList.append(createPoint(x: 234, y: 360))// 京都・三重・滋賀
-        pointList.append(createPoint(x: 232, y: 361))// 京都・三重・奈良
+        pointList.append(createPoint(x: 234, y: 360))// Kyoto・Mie・Shiga
+        pointList.append(createPoint(x: 232, y: 361))// Kyoto・Mie・Nara
         pointList.append(createPoint(x: 237, y: 370))
         pointList.append(createPoint(x: 233, y: 372))
         pointList.append(createPoint(x: 234, y: 381))
-        pointList.append(createPoint(x: 228, y: 387))// 和歌山・三重・奈良
-        pointList.append(createPoint(x: 231, y: 391))//和歌山・三重
+        pointList.append(createPoint(x: 228, y: 387))// Wakayama・Mie・Nara
+        pointList.append(createPoint(x: 231, y: 391))//Wakayama・Mie
         pointList.append(createPoint(x: 225, y: 401))
         pointList.append(createPoint(x: 216, y: 397))
         pointList.append(createPoint(x: 217, y: 390))
         pointList.append(createPoint(x: 209, y: 385))
         pointList.append(createPoint(x: 209, y: 374))
-        pointList.append(createPoint(x: 211, y: 372))//和歌山・大阪
+        pointList.append(createPoint(x: 211, y: 372))//Wakayama・Osaka
         pointList.append(createPoint(x: 217, y: 366))
-        pointList.append(createPoint(x: 218, y: 362))//大阪・兵庫
+        pointList.append(createPoint(x: 218, y: 362))//Osaka・Hyogo
         pointList.append(createPoint(x: 212, y: 362))
         pointList.append(createPoint(x: 205, y: 365))
         pointList.append(createPoint(x: 198, y: 360))
-        // 中国との接点
-        pointList.append(createPoint(x: 186, y: 360))// 兵庫・岡山
-        pointList.append(createPoint(x: 192, y: 345))// 鳥取・兵庫・岡山
+        // point of contact with Chugoku
+        pointList.append(createPoint(x: 186, y: 360))// Hyogo・Okayama
+        pointList.append(createPoint(x: 192, y: 345))// Tottori・Hyogo・Okayama
         pointList.append(createPoint(x: 194, y: 343))
-        pointList.append(createPoint(x: 190, y: 334))// 鳥取・兵庫
-        pointList.append(createPoint(x: 203, y: 334))//京都・兵庫
+        pointList.append(createPoint(x: 190, y: 334))// Tottori・Hyogo
+        pointList.append(createPoint(x: 203, y: 334))//Kyoto・Hyogo
         pointList.append(createPoint(x: 211, y: 329))
         pointList.append(createPoint(x: 215, y: 332))
         pointList.append(createPoint(x: 214, y: 336))
@@ -564,17 +552,17 @@ protocol AMJpnMapViewDelegate: class {
     private func drawChugoku() {
         
         var pointList = [CGPoint]()
-        /// 近畿との接点
-        pointList.append(createPoint(x: 190, y: 334))// 鳥取・兵庫
+        /// point of contact with Kinki
+        pointList.append(createPoint(x: 190, y: 334))// Tottori・Hyogo
         pointList.append(createPoint(x: 194, y: 343))
-        pointList.append(createPoint(x: 192, y: 345))// 鳥取・兵庫・岡山
-        pointList.append(createPoint(x: 186, y: 360))// 兵庫・岡山
+        pointList.append(createPoint(x: 192, y: 345))// Tottori・Hyogo・Okayama
+        pointList.append(createPoint(x: 186, y: 360))// Hyogo・Okayama
         pointList.append(createPoint(x: 177, y: 370))
-        pointList.append(createPoint(x: 169, y: 368))// 岡山・広島
+        pointList.append(createPoint(x: 169, y: 368))// Okayama・Hiroshima
         pointList.append(createPoint(x: 166, y: 369))
         pointList.append(createPoint(x: 145, y: 377))
         pointList.append(createPoint(x: 142, y: 371))
-        pointList.append(createPoint(x: 139, y: 377))// 広島・山口
+        pointList.append(createPoint(x: 139, y: 377))// Hiroshima・Yamaguchi
         pointList.append(createPoint(x: 138, y: 376))
         pointList.append(createPoint(x: 137, y: 383))
         pointList.append(createPoint(x: 131, y: 388))
@@ -583,11 +571,11 @@ protocol AMJpnMapViewDelegate: class {
         pointList.append(createPoint(x: 104, y: 384))
         pointList.append(createPoint(x: 106, y: 370))
         pointList.append(createPoint(x: 114, y: 372))
-        pointList.append(createPoint(x: 123, y: 363))// 島根・山口
+        pointList.append(createPoint(x: 123, y: 363))// Shimane・Yamaguchi
         pointList.append(createPoint(x: 147, y: 343))
         pointList.append(createPoint(x: 163, y: 335))
         pointList.append(createPoint(x: 164, y: 338))
-        pointList.append(createPoint(x: 165, y: 340))// 鳥取・島根
+        pointList.append(createPoint(x: 165, y: 340))// Tottori・Shimane
         pointList.append(createPoint(x: 170, y: 337))
         pointList.append(createPoint(x: 182, y: 338))
 
@@ -608,23 +596,23 @@ protocol AMJpnMapViewDelegate: class {
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 184, y: 373))
         pointList.append(createPoint(x: 187, y: 375))
-        pointList.append(createPoint(x: 194, y: 377))// 香川・徳島
+        pointList.append(createPoint(x: 194, y: 377))// Kagawa・Tokushima
         pointList.append(createPoint(x: 197, y: 377))
         pointList.append(createPoint(x: 200, y: 389))
         pointList.append(createPoint(x: 189, y: 397))
-        pointList.append(createPoint(x: 188, y: 398))// 徳島・高知
+        pointList.append(createPoint(x: 188, y: 398))// Tokushima・Kochi
         pointList.append(createPoint(x: 186, y: 406))
         pointList.append(createPoint(x: 178, y: 399))
         pointList.append(createPoint(x: 167, y: 400))
         pointList.append(createPoint(x: 151, y: 421))
-        pointList.append(createPoint(x: 146, y: 415))// 高知・愛媛
+        pointList.append(createPoint(x: 146, y: 415))// Kochi・Ehime
         pointList.append(createPoint(x: 143, y: 417))
         pointList.append(createPoint(x: 143, y: 404))
         pointList.append(createPoint(x: 132, y: 403))
         pointList.append(createPoint(x: 148, y: 393))
         pointList.append(createPoint(x: 155, y: 380))
         pointList.append(createPoint(x: 158, y: 385))
-        pointList.append(createPoint(x: 172, y: 382))// 香川・愛媛
+        pointList.append(createPoint(x: 172, y: 382))// Kagawa・Ehime
         pointList.append(createPoint(x: 171, y: 375))
         
         layerShikoku = createLayer(pointList: pointList)
@@ -644,17 +632,17 @@ protocol AMJpnMapViewDelegate: class {
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 103, y: 385))
         pointList.append(createPoint(x: 105, y: 391))
-        pointList.append(createPoint(x: 111, y: 397))// 福岡・大分
+        pointList.append(createPoint(x: 111, y: 397))// Fukuoka・Oita
         pointList.append(createPoint(x: 122, y: 393))
         pointList.append(createPoint(x: 127, y: 398))
         pointList.append(createPoint(x: 118, y: 405))
         pointList.append(createPoint(x: 130, y: 407))
         pointList.append(createPoint(x: 133, y: 416))
-        pointList.append(createPoint(x: 129, y: 421))// 大分・宮崎
+        pointList.append(createPoint(x: 129, y: 421))// Oita・Miyazaki
         pointList.append(createPoint(x: 124, y: 425))
         pointList.append(createPoint(x: 119, y: 437))
         pointList.append(createPoint(x: 114, y: 462))
-        pointList.append(createPoint(x: 110, y: 457))// 宮崎・鹿児島
+        pointList.append(createPoint(x: 110, y: 457))// Miyazaki・Kagoshima
         pointList.append(createPoint(x: 98, y: 472))
         pointList.append(createPoint(x: 98, y: 456))
         pointList.append(createPoint(x: 101, y: 456))
@@ -666,14 +654,14 @@ protocol AMJpnMapViewDelegate: class {
         pointList.append(createPoint(x: 90, y: 458))
         pointList.append(createPoint(x: 85, y: 450))
         pointList.append(createPoint(x: 84, y: 436))
-        pointList.append(createPoint(x: 88, y: 437))// 熊本・鹿児島
+        pointList.append(createPoint(x: 88, y: 437))// Kumamoto・Kagoshima
         pointList.append(createPoint(x: 89, y: 428))
         pointList.append(createPoint(x: 95, y: 420))
         pointList.append(createPoint(x: 96, y: 414))
-        pointList.append(createPoint(x: 93, y: 413))// 熊本・福岡
+        pointList.append(createPoint(x: 93, y: 413))// Kumamoto・Fukuoka
         pointList.append(createPoint(x: 91, y: 411))
-        pointList.append(createPoint(x: 88, y: 407))// 福岡・佐賀
-        pointList.append(createPoint(x: 85, y: 415))// 佐賀・長崎
+        pointList.append(createPoint(x: 88, y: 407))// Fukuoka・Saga
+        pointList.append(createPoint(x: 85, y: 415))// Saga・Nagasaki
         pointList.append(createPoint(x: 83, y: 418))
         pointList.append(createPoint(x: 83, y: 419))
         pointList.append(createPoint(x: 85, y: 420))
@@ -685,9 +673,9 @@ protocol AMJpnMapViewDelegate: class {
         pointList.append(createPoint(x: 72, y: 410))
         pointList.append(createPoint(x: 69, y: 406))
         pointList.append(createPoint(x: 72, y: 402))
-        pointList.append(createPoint(x: 76, y: 402))// 佐賀・長崎
+        pointList.append(createPoint(x: 76, y: 402))// Saga・Nagasaki
         pointList.append(createPoint(x: 78, y: 397))
-        pointList.append(createPoint(x: 83, y: 398))// 福岡・佐賀
+        pointList.append(createPoint(x: 83, y: 398))// Fukuoka・Saga
 
         layerKyushu = createLayer(pointList: pointList)
         guard let layerKyushu = layerKyushu else {
@@ -809,7 +797,7 @@ protocol AMJpnMapViewDelegate: class {
     }
     
     //MARK:Public Method
-    func setStrokeColor(color: UIColor, region: AMJMRegion) {
+    public func setStrokeColor(color: UIColor, region: AMJMRegion) {
         
         if region == .none {
             
@@ -829,7 +817,7 @@ protocol AMJpnMapViewDelegate: class {
         }
     }
     
-    func setFillColor(color: UIColor, region: AMJMRegion) {
+    public func setFillColor(color: UIColor, region: AMJMRegion) {
         
         if region == .none {
             
@@ -849,7 +837,7 @@ protocol AMJpnMapViewDelegate: class {
         }
     }
     
-    func setScale(scale: CGFloat, region: AMJMRegion) {
+    public func setScale(scale: CGFloat, region: AMJMRegion) {
         
         if region == .none {
             

@@ -8,7 +8,7 @@
 
 import UIKit
 
-enum AMJMPrefecture {
+public enum AMJMPrefecture {
 
     case hokkaido
     case aomori
@@ -59,7 +59,7 @@ enum AMJMPrefecture {
     case okinawa
 }
 
-@IBDesignable class AMJpnMapDetailView: UIView {
+@IBDesignable public class AMJpnMapDetailView: UIView {
     
     enum AMDRegion {
         
@@ -73,7 +73,7 @@ enum AMJMPrefecture {
         case kyushu
     }
     
-    override var bounds: CGRect {
+    override public var bounds: CGRect {
         
         didSet {
             
@@ -83,42 +83,32 @@ enum AMJMPrefecture {
         }
     }
     
-    @IBInspectable var strokeColor:UIColor = UIColor.green
+    @IBInspectable public var strokeColor:UIColor = UIColor.green
     
-    @IBInspectable var fillColor:UIColor = UIColor.green
+    @IBInspectable public var fillColor:UIColor = UIColor.green
     
-    @IBInspectable var strokeColorOkinawaLine:UIColor = UIColor.black
+    @IBInspectable public var strokeColorOkinawaLine:UIColor = UIColor.black
     
-    /// 地図の大きさ
     private var mapSize:CGFloat = 0
     
-    /// 北海道描画用レイヤー
     private var layerHokkaido:AMJMHokkaidoLayer?
     
-    /// 東北描画用レイヤー
     private var layerTohoku:AMJMTohokuLayer?
     
-    /// 関東描画用レイヤー
     private var layerKanto:AMJMKantoLayer?
     
-    /// 中部描画用レイヤー
     private var layerChubu:AMJMChubuLayer?
     
-    /// 近畿描画用レイヤー
     private var layerKinki:AMJMKinkiLayer?
     
-    /// 中国描画用レイヤー
     private var layerChugoku:AMJMChugokuLayer?
     
-    /// 四国描画用レイヤー
     private var layerShikoku:AMJMShikokuLayer?
     
-    /// 九州描画用レイヤー
     private var layerKyushu:AMJMKyushuLayer?
     
-    
     //MARK:Initialize
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         
         super.init(coder:aDecoder)
     }
@@ -134,7 +124,7 @@ enum AMJMPrefecture {
         self.init(frame: CGRect.zero)
     }
     
-    override func draw(_ rect: CGRect) {
+    override public func draw(_ rect: CGRect) {
         
         mapSize = (rect.width < rect.height) ? rect.width : rect.height
         clear()
@@ -316,7 +306,7 @@ enum AMJMPrefecture {
     }
     
     //MARK:Public Method
-    func setStrokeColor(color: UIColor, prefecture: AMJMPrefecture) {
+    public func setStrokeColor(color: UIColor, prefecture: AMJMPrefecture) {
         
         guard let targetLayer = getRegionLayer(prefecture: prefecture) else {
             
@@ -326,7 +316,7 @@ enum AMJMPrefecture {
         targetLayer.setStrokeColor(color: color, prefecture: prefecture)
     }
     
-    func setFillColor(color: UIColor, prefecture: AMJMPrefecture) {
+    public func setFillColor(color: UIColor, prefecture: AMJMPrefecture) {
         
         guard let targetLayer = getRegionLayer(prefecture: prefecture) else {
             
