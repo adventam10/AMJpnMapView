@@ -59,7 +59,7 @@ class AMJMRegionLayer: CAShapeLayer {
     
     func setStrokeColor(color: UIColor, prefecture: AMJMPrefecture) {
         
-        guard let index = prefectureTypes.index(of: prefecture) else {
+        guard let index = prefectureTypes.firstIndex(of: prefecture) else {
             
             return
         }
@@ -70,7 +70,7 @@ class AMJMRegionLayer: CAShapeLayer {
     
     func setFillColor(color: UIColor, prefecture: AMJMPrefecture) {
         
-        guard let index = prefectureTypes.index(of: prefecture) else {
+        guard let index = prefectureTypes.firstIndex(of: prefecture) else {
             
             return
         }
