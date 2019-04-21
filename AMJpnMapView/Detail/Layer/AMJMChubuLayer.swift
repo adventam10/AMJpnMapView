@@ -12,13 +12,11 @@ class AMJMChubuLayer: AMJMRegionLayer {
 
     override var prefectureTypes: [AMJMPrefecture] {
         get {
-            
             return [.niigata, .nagano, .yamanashi, .shizuoka, .aichi, .mie, .gifu, .fukui, .ishikawa, .toyama]
         }
     }
     
     override func drawMap(rect: CGRect) {
-        
         super.drawMap(rect: rect)
         drawNiigata()
         drawNagano()
@@ -33,7 +31,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawNiigata() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 322, y: 242))// Yamagata・Niigata
         pointList.append(createPoint(x: 328, y: 249))
@@ -60,7 +57,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawNagano() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 273, y: 309))// Nagano・Toyama
         pointList.append(createPoint(x: 276, y: 297))// Niigata・Toyama・Nagano
@@ -89,7 +85,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawYamanashi() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 288, y: 336))// Nagano・Yamanashi・Shizuoka
         pointList.append(createPoint(x: 288, y: 326))
@@ -109,7 +104,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawShizuoka() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 310, y: 334))// Kanagawa・Shizuoka・Yamanashi
         pointList.append(createPoint(x: 305, y: 341))
@@ -138,7 +132,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawAichi() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 270, y: 345))// Nagano・Aichi・Gifu
         pointList.append(createPoint(x: 276, y: 347))//Nagano・Shizuoka・Aichi
@@ -163,7 +156,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawMie() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 249, y: 347))// Aichi・Mie・Gifu
         pointList.append(createPoint(x: 250, y: 351))// Aichi・Mie
@@ -188,7 +180,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawGifu() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 272, y: 310))// Nagano・Gifu・Toyama
         pointList.append(createPoint(x: 271, y: 323))
@@ -215,7 +206,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawFukui() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 238, y: 313))// Fukui・Ishikawa
         pointList.append(createPoint(x: 244, y: 317))
@@ -238,7 +228,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawIshikawa() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 238, y: 313))// Fukui・Ishikawa
         pointList.append(createPoint(x: 255, y: 290))
@@ -258,7 +247,6 @@ class AMJMChubuLayer: AMJMRegionLayer {
     }
     
     private func drawToyama() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 258, y: 291))// Ishikawa・Toyama
         pointList.append(createPoint(x: 258, y: 297))
@@ -276,5 +264,4 @@ class AMJMChubuLayer: AMJMRegionLayer {
         addSublayer(layer)
         prefectureLayers.append(layer)
     }
-    
 }

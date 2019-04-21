@@ -12,13 +12,11 @@ class AMJMTohokuLayer: AMJMRegionLayer {
 
     override var prefectureTypes: [AMJMPrefecture] {
         get {
-            
             return [.aomori, .iwate, .akita, .miyagi, .yamagata, .fukushima]
         }
     }
     
     override func drawMap(rect: CGRect) {
-        
         super.drawMap(rect: rect)
         drawAomori()
         drawIwate()
@@ -29,7 +27,6 @@ class AMJMTohokuLayer: AMJMRegionLayer {
     }
     
     private func drawAomori() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 356, y: 145))
         pointList.append(createPoint(x: 362, y: 151))
@@ -59,7 +56,6 @@ class AMJMTohokuLayer: AMJMRegionLayer {
     }
     
     private func drawIwate() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 357, y: 184))// Aomori・Iwate・Akita
         pointList.append(createPoint(x: 373, y: 179))// Iwate・Aomori
@@ -80,7 +76,6 @@ class AMJMTohokuLayer: AMJMRegionLayer {
     }
     
     private func drawAkita() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 332, y: 180))// Akita・Aomori
         pointList.append(createPoint(x: 345, y: 181))
@@ -105,7 +100,6 @@ class AMJMTohokuLayer: AMJMRegionLayer {
     }
     
     private func drawMiyagi() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 374, y: 230))// Iwate・Miyagi
         pointList.append(createPoint(x: 368, y: 236))
@@ -128,7 +122,6 @@ class AMJMTohokuLayer: AMJMRegionLayer {
     }
     
     private func drawYamagata() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 328, y: 225))// Akita・Yamagata
         pointList.append(createPoint(x: 341, y: 225))
@@ -153,7 +146,6 @@ class AMJMTohokuLayer: AMJMRegionLayer {
     }
     
     private func drawFukushima() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 356, y: 263))// Miyagi・Fukushima
         pointList.append(createPoint(x: 358, y: 273))
@@ -179,5 +171,4 @@ class AMJMTohokuLayer: AMJMRegionLayer {
         addSublayer(layer)
         prefectureLayers.append(layer)
     }
-
 }

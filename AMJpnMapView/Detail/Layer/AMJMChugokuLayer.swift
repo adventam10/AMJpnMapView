@@ -12,13 +12,11 @@ class AMJMChugokuLayer: AMJMRegionLayer {
 
     override var prefectureTypes: [AMJMPrefecture] {
         get {
-            
             return [.tottori, .okayama, .hiroshima, .yamaguchi, .shimane]
         }
     }
     
     override func drawMap(rect: CGRect) {
-        
         super.drawMap(rect: rect)
         drawTottori()
         drawOkayama()
@@ -28,7 +26,6 @@ class AMJMChugokuLayer: AMJMRegionLayer {
     }
     
     private func drawTottori() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 165, y: 340))// Tottori・Shimane
         pointList.append(createPoint(x: 170, y: 337))
@@ -49,7 +46,6 @@ class AMJMChugokuLayer: AMJMRegionLayer {
     }
     
     private func drawOkayama() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 192, y: 345))// Tottori・Hyogo・Okayama
         pointList.append(createPoint(x: 186, y: 360))// Hyogo・Okayama
@@ -67,7 +63,6 @@ class AMJMChugokuLayer: AMJMRegionLayer {
     }
     
     private func drawHiroshima() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 159, y: 349))// Tottori・Hiroshima・Shimane
         pointList.append(createPoint(x: 164, y: 351))// Tottori・Hiroshima・Okayama
@@ -89,7 +84,6 @@ class AMJMChugokuLayer: AMJMRegionLayer {
     }
     
     private func drawYamaguchi() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 133, y: 370))// Hiroshima・Yamaguchi・Shimane
         pointList.append(createPoint(x: 136, y: 374))
@@ -112,7 +106,6 @@ class AMJMChugokuLayer: AMJMRegionLayer {
     }
     
     private func drawShimane() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 123, y: 363))// Shimane・Yamaguchi
         pointList.append(createPoint(x: 147, y: 343))

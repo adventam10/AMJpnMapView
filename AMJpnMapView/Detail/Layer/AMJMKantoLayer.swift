@@ -12,13 +12,11 @@ class AMJMKantoLayer: AMJMRegionLayer {
 
     override var prefectureTypes: [AMJMPrefecture] {
         get {
-            
             return [.ibaraki, .chiba, .tochigi, .gunma, .saitama, .tokyo, .kanagawa]
         }
     }
     
     override func drawMap(rect: CGRect) {
-        
         super.drawMap(rect: rect)
         drawIbaraki()
         drawChiba()
@@ -30,7 +28,6 @@ class AMJMKantoLayer: AMJMRegionLayer {
     }
     
     private func drawIbaraki() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 340, y: 296))//Fukushima・Ibaraki・Tochigi
         pointList.append(createPoint(x: 346, y: 297))
@@ -51,7 +48,6 @@ class AMJMKantoLayer: AMJMRegionLayer {
     }
     
     private func drawChiba() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 326, y: 320))// Ibaraki・Chiba・Saitama
         pointList.append(createPoint(x: 338, y: 327))
@@ -72,7 +68,6 @@ class AMJMKantoLayer: AMJMRegionLayer {
     }
     
     private func drawTochigi() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 321, y: 292))//Fukushima・Gunma・Tochigi
         pointList.append(createPoint(x: 329, y: 286))
@@ -93,7 +88,6 @@ class AMJMKantoLayer: AMJMRegionLayer {
     }
     
     private func drawGunma() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 300, y: 321))// Saitama・Gunma・Nagano
         pointList.append(createPoint(x: 297, y: 319))
@@ -116,7 +110,6 @@ class AMJMKantoLayer: AMJMRegionLayer {
     }
     
     private func drawSaitama() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 300, y: 321))// Saitama・Gunma・Nagano
         pointList.append(createPoint(x: 308, y: 317))
@@ -136,7 +129,6 @@ class AMJMKantoLayer: AMJMRegionLayer {
     }
     
     private func drawTokyo() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 306, y: 327))// Tokyo・Saitama・Yamanashi
         pointList.append(createPoint(x: 310, y: 326))
@@ -154,7 +146,6 @@ class AMJMKantoLayer: AMJMRegionLayer {
     }
     
     private func drawKanagawa() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 312, y: 332))// Tokyo・Kanagawa・Yamanashi
         pointList.append(createPoint(x: 320, y: 335))
@@ -174,6 +165,4 @@ class AMJMKantoLayer: AMJMRegionLayer {
         addSublayer(layer)
         prefectureLayers.append(layer)
     }
-    
-
 }

@@ -12,19 +12,16 @@ class AMJMHokkaidoLayer: AMJMRegionLayer {
     
     override var prefectureTypes: [AMJMPrefecture] {
         get {
-            
             return [.hokkaido]
         }
     }
     
     override func drawMap(rect: CGRect) {
-        
         super.drawMap(rect: rect)
         drawHokkaido()
     }
 
     private func drawHokkaido() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 382, y: 8))
         pointList.append(createPoint(x: 414, y: 45))

@@ -20,37 +20,21 @@ public enum AMJMRegion: Int {
     case kyushu = 7
     
     func convert(index: Int) -> AMJMRegion {
-        
         if index == AMJMRegion.hokkaido.rawValue {
-            
             return .hokkaido
-            
         } else if index == AMJMRegion.tohoku.rawValue {
-            
             return .tohoku
-            
         } else if index == AMJMRegion.kanto.rawValue {
-            
             return .kanto
-            
         } else if index == AMJMRegion.chubu.rawValue {
-            
             return .chubu
-            
         } else if index == AMJMRegion.kinki.rawValue {
-            
             return .kinki
-            
         } else if index == AMJMRegion.chugoku.rawValue {
-            
             return .chugoku
-            
         } else if index == AMJMRegion.shikoku.rawValue {
-            
             return .shikoku
-            
         } else if index == AMJMRegion.kyushu.rawValue {
-            
             return .kyushu
         }
         
@@ -59,7 +43,6 @@ public enum AMJMRegion: Int {
 }
 
 public protocol AMJpnMapViewDelegate: class {
-    
     func jpnMapView(jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion)
     func jpnMapView(jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMJMRegion)
 }
@@ -67,9 +50,7 @@ public protocol AMJpnMapViewDelegate: class {
 @IBDesignable public class AMJpnMapView: UIView {
 
     override public var bounds: CGRect {
-        
         didSet {
-            
             mapSize = (frame.width < frame.height) ? frame.width : frame.height
             clear()
             drawMap()
@@ -114,31 +95,26 @@ public protocol AMJpnMapViewDelegate: class {
     
     //MARK:Initialize
     required public init?(coder aDecoder: NSCoder) {
-        
         super.init(coder:aDecoder)
         initView()
     }
     
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
         backgroundColor = UIColor.clear
         initView()
     }
     
     convenience init() {
-        
         self.init(frame: CGRect.zero)
     }
     
     private func initView() {
-        
         let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapAction(gesture:)))
         addGestureRecognizer(tap)
     }
 
     override public func draw(_ rect: CGRect) {
-        
         mapSize = (rect.width < rect.height) ? rect.width : rect.height
         clear()
         drawMap()
@@ -146,64 +122,47 @@ public protocol AMJpnMapViewDelegate: class {
     
     //MARK:Gesture Action
     @objc func tapAction(gesture: UITapGestureRecognizer) {
-        
         let point = gesture.location(in: self)
         var isMap = false
         for (index, layer) in regionLayers.enumerated() {
-            
             let path = UIBezierPath(cgPath: layer.path!)
             if path.contains(point) {
-                
                 isMap = true
                 deselectLayer()
                 if preSelectRegion.rawValue == index {
-                    
                     preSelectRegion = .none
-                    
                 } else {
-                    
                     preSelectRegion = preSelectRegion.convert(index: index)
                     layer.zPosition = 1
-                    if let delegate = delegate {
-                        
-                        delegate.jpnMapView(jpnMapView: self, didSelectAtRegion: preSelectRegion)
-                    }
+                    delegate?.jpnMapView(jpnMapView: self, didSelectAtRegion: preSelectRegion)
                 }
                 break
             }
         }
         
         if !isMap {
-            
             deselectLayer()
             preSelectRegion = .none
         }
     }
     
     private func deselectLayer() {
-        
         if preSelectRegion == .none {
-           
             return
         }
         
         let layer = regionLayers[preSelectRegion.rawValue]
         layer.zPosition = -1
-        if let delegate = delegate {
-            
-            delegate.jpnMapView(jpnMapView: self, didDeselectAtRegion: preSelectRegion)
-        }
+        delegate?.jpnMapView(jpnMapView: self, didDeselectAtRegion: preSelectRegion)
     }
     
     private func reloadMap() {
-        
         clear()
         drawMap()
     }
     
     //MARK:Draw
     private func drawMap() {
-        
         drawHokkaido()
         drawTohoku()
         drawKanto()
@@ -215,14 +174,12 @@ public protocol AMJpnMapViewDelegate: class {
         drawOkinawa()
         
         for layer in regionLayers {
-            
             layer.strokeColor = strokeColor.cgColor
             layer.fillColor = fillColor.cgColor
             layer.zPosition = -1
         }
         
         guard let layerOkinawa = layerOkinawa else {
-            
             return
         }
         
@@ -231,7 +188,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func drawHokkaido() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 382, y: 8))
         pointList.append(createPoint(x: 414, y: 45))
@@ -270,7 +226,6 @@ public protocol AMJpnMapViewDelegate: class {
         
         layerHokkaido = createLayer(pointList: pointList)
         guard let layerHokkaido = layerHokkaido else {
-            
             return
         }
         
@@ -282,7 +237,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func drawTohoku() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 356, y: 145))
         pointList.append(createPoint(x: 362, y: 151))
@@ -340,7 +294,6 @@ public protocol AMJpnMapViewDelegate: class {
     
         layerTohoku = createLayer(pointList: pointList)
         guard let layerTohoku = layerTohoku else {
-            
             return
         }
         layer.addSublayer(layerTohoku)
@@ -351,7 +304,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func drawKanto() {
-        
         var pointList = [CGPoint]()
         /// point of contact with Tohoku, Chubu
         pointList.append(createPoint(x: 313, y: 292))//Fukushima・Gunma・Niigata
@@ -396,7 +348,6 @@ public protocol AMJpnMapViewDelegate: class {
         
         layerKanto = createLayer(pointList: pointList)
         guard let layerKanto = layerKanto else {
-            
             return
         }
         layer.addSublayer(layerKanto)
@@ -407,7 +358,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func drawChubu() {
-        
         var pointList = [CGPoint]()
         /// point of contact with Tohoku
         pointList.append(createPoint(x: 322, y: 242))// Yamagata・Niigata
@@ -488,7 +438,6 @@ public protocol AMJpnMapViewDelegate: class {
       
         layerChubu = createLayer(pointList: pointList)
         guard let layerChubu = layerChubu else {
-            
             return
         }
         layer.addSublayer(layerChubu)
@@ -499,7 +448,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func drawKinki() {
-        
         var pointList = [CGPoint]()
         // point of contact with Chubu
         pointList.append(createPoint(x: 215, y: 339))// Kyoto・Fukui
@@ -539,7 +487,6 @@ public protocol AMJpnMapViewDelegate: class {
 
         layerKinki = createLayer(pointList: pointList)
         guard let layerKinki = layerKinki else {
-            
             return
         }
         layer.addSublayer(layerKinki)
@@ -550,7 +497,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func drawChugoku() {
-        
         var pointList = [CGPoint]()
         /// point of contact with Kinki
         pointList.append(createPoint(x: 190, y: 334))// Tottori・Hyogo
@@ -581,7 +527,6 @@ public protocol AMJpnMapViewDelegate: class {
 
         layerChugoku = createLayer(pointList: pointList)
         guard let layerChugoku = layerChugoku else {
-            
             return
         }
         layer.addSublayer(layerChugoku)
@@ -592,7 +537,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func drawShikoku() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 184, y: 373))
         pointList.append(createPoint(x: 187, y: 375))
@@ -617,7 +561,6 @@ public protocol AMJpnMapViewDelegate: class {
         
         layerShikoku = createLayer(pointList: pointList)
         guard let layerShikoku = layerShikoku else {
-            
             return
         }
         layer.addSublayer(layerShikoku)
@@ -628,7 +571,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func drawKyushu() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 103, y: 385))
         pointList.append(createPoint(x: 105, y: 391))
@@ -679,7 +621,6 @@ public protocol AMJpnMapViewDelegate: class {
 
         layerKyushu = createLayer(pointList: pointList)
         guard let layerKyushu = layerKyushu else {
-            
             return
         }
         layer.addSublayer(layerKyushu)
@@ -690,7 +631,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func drawOkinawa() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 52, y: 469))
         pointList.append(createPoint(x: 52, y: 473))
@@ -707,14 +647,11 @@ public protocol AMJpnMapViewDelegate: class {
         pointList.append(createPoint(x: 50, y: 468))
 
         layerOkinawa = createLayer(pointList: pointList)
-        guard let layerOkinawa = layerOkinawa else {
-            
+        guard let layerOkinawa = layerOkinawa,
+            let layerKyushu = layerKyushu else {
             return
         }
-        guard let layerKyushu = layerKyushu else {
-            
-            return
-        }
+        
         layerKyushu.addSublayer(layerOkinawa)
      
         let linePath = UIBezierPath()
@@ -724,7 +661,6 @@ public protocol AMJpnMapViewDelegate: class {
         
         layerOkinawaLine = CAShapeLayer()
         guard let layerOkinawaLine = layerOkinawaLine else {
-            
             return
         }
         
@@ -736,7 +672,6 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func clear() {
-        
         anchorPointList.removeAll()
         regionLayers.removeAll()
         layerHokkaido?.removeFromSuperlayer()
@@ -763,16 +698,11 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func createLayer(pointList: [CGPoint]) -> CAShapeLayer {
-        
         let path = UIBezierPath()
         for (index, point) in pointList.enumerated() {
-            
             if index == 0 {
-                
                 path.move(to: point)
-                
             } else {
-                
                 path.addLine(to: point)
             }
         }
@@ -785,12 +715,10 @@ public protocol AMJpnMapViewDelegate: class {
     }
     
     private func createPoint(x: CGFloat, y: CGFloat) -> CGPoint {
-        
         return CGPoint(x: mapSize * (x/500.0), y: mapSize * (y/500.0))
     }
     
     private func createCenterPoint(point1: CGPoint, point2: CGPoint) -> CGPoint {
-        
         let centerX = (point1.x + point2.x)/2
         let centerY = (point1.y + point2.y)/2
         return CGPoint(x: centerX/frame.width, y: centerY/frame.height)
@@ -798,54 +726,43 @@ public protocol AMJpnMapViewDelegate: class {
     
     //MARK:Public Method
     public func setStrokeColor(color: UIColor, region: AMJMRegion) {
-        
         if region == .none {
-            
             return
         }
         
         if regionLayers.count == 0 {
-            
             return
         }
         
         let layer = regionLayers[region.rawValue]
         layer.strokeColor = color.cgColor
         if region == .kyushu {
-            
             layerOkinawa?.strokeColor = color.cgColor
         }
     }
     
     public func setFillColor(color: UIColor, region: AMJMRegion) {
-        
         if region == .none {
-            
             return
         }
         
         if regionLayers.count == 0 {
-            
             return
         }
         
         let layer = regionLayers[region.rawValue]
         layer.fillColor = color.cgColor
         if region == .kyushu {
-            
             layerOkinawa?.fillColor = color.cgColor
         }
     }
     
     public func setScale(scale: CGFloat, region: AMJMRegion) {
-        
         if region == .none {
-            
             return
         }
         
         if regionLayers.count == 0 {
-            
             return
         }
         

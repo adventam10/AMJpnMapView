@@ -13,11 +13,8 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     private var layerOkinawaLine:CAShapeLayer?
     
     var strokeColorOkinawaLine:UIColor = UIColor.black {
-    
         didSet{
-            
             guard let layerOkinawaLine = layerOkinawaLine else {
-                
                 return
             }
             
@@ -27,13 +24,11 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     
     override var prefectureTypes: [AMJMPrefecture] {
         get {
-            
             return [.fukuoka, .oita, .miyazaki, .kagoshima, .kumamoto, .saga, .nagasaki, .okinawa]
         }
     }
     
     override func drawMap(rect: CGRect) {
-        
         super.drawMap(rect: rect)
         drawFukuoka()
         drawOita()
@@ -46,7 +41,6 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     }
     
     private func drawFukuoka() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 111, y: 397))// Fukuoka・Oita
         pointList.append(createPoint(x: 103, y: 401))
@@ -65,7 +59,6 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     }
     
     private func drawOita() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 111, y: 397))// Fukuoka・Oita
         pointList.append(createPoint(x: 122, y: 393))
@@ -88,7 +81,6 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     }
     
     private func drawMiyazaki() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 114, y: 418))// Oita・Miyazaki・Kumamoto
         pointList.append(createPoint(x: 129, y: 421))// Oita・Miyazaki
@@ -108,7 +100,6 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     }
     
     private func drawKagoshima() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 100, y: 442))// Miyazaki・Kagoshima・Kumamoto
         pointList.append(createPoint(x: 104, y: 450))
@@ -134,7 +125,6 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     }
     
     private func drawKumamoto() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 93, y: 413))// Kumamoto・Fukuoka
         pointList.append(createPoint(x: 104, y: 410))// Fukuoka・Oita・Kumamoto
@@ -157,7 +147,6 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     }
     
     private func drawSaga() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 76, y: 402))// Saga・Nagasaki
         pointList.append(createPoint(x: 78, y: 397))
@@ -172,7 +161,6 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     }
     
     private func drawNagasaki() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 76, y: 402))// Saga・Nagasaki
         pointList.append(createPoint(x: 85, y: 415))// Saga・Nagasaki
@@ -194,7 +182,6 @@ class AMJMKyushuLayer: AMJMRegionLayer{
     }
     
     private func drawOkinawa() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 52, y: 469))
         pointList.append(createPoint(x: 52, y: 473))
@@ -221,7 +208,6 @@ class AMJMKyushuLayer: AMJMRegionLayer{
         
         layerOkinawaLine = CAShapeLayer()
         guard let layerOkinawaLine = layerOkinawaLine else {
-            
             return
         }
         

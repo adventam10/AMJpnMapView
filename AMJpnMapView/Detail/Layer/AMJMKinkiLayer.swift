@@ -12,13 +12,11 @@ class AMJMKinkiLayer: AMJMRegionLayer {
 
     override var prefectureTypes: [AMJMPrefecture] {
         get {
-            
             return [.shiga, .kyoto, .hyogo, .nara, .wakayama, .osaka]
         }
     }
     
     override func drawMap(rect: CGRect) {
-        
         super.drawMap(rect: rect)
         drawShiga()
         drawKyoto()
@@ -29,7 +27,6 @@ class AMJMKinkiLayer: AMJMRegionLayer {
     }
     
     private func drawShiga() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 225, y: 343))// Kyoto・Fukui・Shiga
         pointList.append(createPoint(x: 228, y: 338))
@@ -45,7 +42,6 @@ class AMJMKinkiLayer: AMJMRegionLayer {
     }
     
     private func drawKyoto() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 215, y: 339))// Kyoto・Fukui
         pointList.append(createPoint(x: 222, y: 343))
@@ -69,7 +65,6 @@ class AMJMKinkiLayer: AMJMRegionLayer {
     }
     
     private func drawHyogo() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 190, y: 334))// Tottori・Hyogo
         pointList.append(createPoint(x: 203, y: 334))//Kyoto・Hyogo
@@ -91,7 +86,6 @@ class AMJMKinkiLayer: AMJMRegionLayer {
     }
     
     private func drawNara() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 232, y: 361))// Kyoto・Mie・Nara
         pointList.append(createPoint(x: 237, y: 370))
@@ -110,7 +104,6 @@ class AMJMKinkiLayer: AMJMRegionLayer {
     }
     
     private func drawWakayama() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 211, y: 372))//Wakayama・Osaka
         pointList.append(createPoint(x: 225, y: 372))// Wakayama・Osaka・Nara
@@ -131,7 +124,6 @@ class AMJMKinkiLayer: AMJMRegionLayer {
     }
     
     private func drawOsaka() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 225, y: 355))// Kyoto・Osaka・Hyogo
         pointList.append(createPoint(x: 225, y: 360))// Kyoto・Osaka・Nara

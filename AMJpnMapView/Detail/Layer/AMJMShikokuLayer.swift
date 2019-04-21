@@ -12,13 +12,11 @@ class AMJMShikokuLayer: AMJMRegionLayer {
 
     override var prefectureTypes: [AMJMPrefecture] {
         get {
-            
             return [.kagawa, .tokushima, .kochi, .ehime]
         }
     }
     
     override func drawMap(rect: CGRect) {
-        
         super.drawMap(rect: rect)
         drawKagawa()
         drawTokushima()
@@ -27,7 +25,6 @@ class AMJMShikokuLayer: AMJMRegionLayer {
     }
     
     private func drawKagawa() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 172, y: 382))// Kagawa・Ehime
         pointList.append(createPoint(x: 171, y: 375))
@@ -43,7 +40,6 @@ class AMJMShikokuLayer: AMJMRegionLayer {
     }
     
     private func drawTokushima() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 194, y: 377))// Kagawa・Tokushima
         pointList.append(createPoint(x: 197, y: 377))
@@ -61,7 +57,6 @@ class AMJMShikokuLayer: AMJMRegionLayer {
     }
     
     private func drawKochi() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 173, y: 388))// Tokushima・Kochi・Ehime
         pointList.append(createPoint(x: 181, y: 390))
@@ -80,7 +75,6 @@ class AMJMShikokuLayer: AMJMRegionLayer {
     }
     
     private func drawEhime() {
-        
         var pointList = [CGPoint]()
         pointList.append(createPoint(x: 172, y: 382))// Kagawa・Ehime
         pointList.append(createPoint(x: 174, y: 384))// Kagawa・Tokushima・Ehime

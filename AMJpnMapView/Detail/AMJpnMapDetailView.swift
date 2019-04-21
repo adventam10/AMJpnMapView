@@ -9,7 +9,6 @@
 import UIKit
 
 public enum AMJMPrefecture {
-
     case hokkaido
     case aomori
     case iwate
@@ -62,7 +61,6 @@ public enum AMJMPrefecture {
 @IBDesignable public class AMJpnMapDetailView: UIView {
     
     enum AMDRegion {
-        
         case hokkaido
         case tohoku
         case kanto
@@ -74,9 +72,7 @@ public enum AMJMPrefecture {
     }
     
     override public var bounds: CGRect {
-        
         didSet {
-            
             mapSize = (frame.width < frame.height) ? frame.width : frame.height
             clear()
             drawMap()
@@ -109,38 +105,31 @@ public enum AMJMPrefecture {
     
     //MARK:Initialize
     required public init?(coder aDecoder: NSCoder) {
-        
         super.init(coder:aDecoder)
     }
     
     override init(frame: CGRect) {
-        
         super.init(frame: frame)
         backgroundColor = UIColor.clear
     }
     
     convenience init() {
-        
         self.init(frame: CGRect.zero)
     }
     
     override public func draw(_ rect: CGRect) {
-        
         mapSize = (rect.width < rect.height) ? rect.width : rect.height
         clear()
         drawMap()
     }
     
-    
     private func reloadMap() {
-        
         clear()
         drawMap()
     }
     
     //MARK:Draw
     private func drawMap() {
-        
         drawHokkaido()
         drawTohoku()
         drawKanto()
@@ -152,7 +141,6 @@ public enum AMJMPrefecture {
     }
     
     private func drawHokkaido() {
-        
         layerHokkaido = AMJMHokkaidoLayer()
         layerHokkaido?.mapFillColor = fillColor
         layerHokkaido?.mapStrokeColor = strokeColor
@@ -161,7 +149,6 @@ public enum AMJMPrefecture {
     }
     
     private func drawTohoku() {
-        
         layerTohoku = AMJMTohokuLayer()
         layerTohoku?.mapFillColor = fillColor
         layerTohoku?.mapStrokeColor = strokeColor
@@ -170,7 +157,6 @@ public enum AMJMPrefecture {
     }
     
     private func drawKanto() {
-        
         layerKanto = AMJMKantoLayer()
         layerKanto?.mapFillColor = fillColor
         layerKanto?.mapStrokeColor = strokeColor
@@ -179,7 +165,6 @@ public enum AMJMPrefecture {
     }
     
     private func drawChubu() {
-        
         layerChubu = AMJMChubuLayer()
         layerChubu?.mapFillColor = fillColor
         layerChubu?.mapStrokeColor = strokeColor
@@ -188,7 +173,6 @@ public enum AMJMPrefecture {
     }
     
     private func drawKinki() {
-        
         layerKinki = AMJMKinkiLayer()
         layerKinki?.mapFillColor = fillColor
         layerKinki?.mapStrokeColor = strokeColor
@@ -197,7 +181,6 @@ public enum AMJMPrefecture {
     }
     
     private func drawChugoku() {
-        
         layerChugoku = AMJMChugokuLayer()
         layerChugoku?.mapFillColor = fillColor
         layerChugoku?.mapStrokeColor = strokeColor
@@ -206,7 +189,6 @@ public enum AMJMPrefecture {
     }
     
     private func drawShikoku() {
-        
         layerShikoku = AMJMShikokuLayer()
         layerShikoku?.mapFillColor = fillColor
         layerShikoku?.mapStrokeColor = strokeColor
@@ -215,7 +197,6 @@ public enum AMJMPrefecture {
     }
     
     private func drawKyushu() {
-        
         layerKyushu = AMJMKyushuLayer()
         layerKyushu?.mapFillColor = fillColor
         layerKyushu?.mapStrokeColor = strokeColor
@@ -225,7 +206,6 @@ public enum AMJMPrefecture {
     }
     
     private func clear() {
-        
         layerHokkaido?.removeFromSuperlayer()
         layerTohoku?.removeFromSuperlayer()
         layerKanto?.removeFromSuperlayer()
@@ -246,35 +226,27 @@ public enum AMJMPrefecture {
     }
     
     private func convertRegion(prefecture: AMJMPrefecture) -> AMDRegion {
-    
         switch prefecture {
         case .hokkaido:
             return .hokkaido
-            
         case .aomori, .iwate, .akita,
              .miyagi, .yamagata, .fukushima:
             return .tohoku
-            
         case .ibaraki, .chiba, .tochigi,
              .gunma, .saitama, .tokyo, .kanagawa:
             return .kanto
-            
         case .niigata, .nagano, .yamanashi,
              .shizuoka, .aichi, .mie, .gifu,
              .fukui, .ishikawa, .toyama:
             return .chubu
-            
         case .shiga, .kyoto, .hyogo,
              .nara, .wakayama, .osaka:
             return .kinki
-            
         case .tottori, .okayama, .hiroshima,
              .yamaguchi, .shimane:
             return .chugoku
-            
         case .kagawa, .tokushima, .kochi, .ehime:
             return .shikoku
-        
         case .fukuoka, .oita, .miyazaki,
              .kagoshima, .kumamoto, .saga,
              .nagasaki, .okinawa:
@@ -283,9 +255,7 @@ public enum AMJMPrefecture {
     }
     
     private func getRegionLayer(prefecture: AMJMPrefecture) -> AMJMRegionLayer? {
-        
         switch convertRegion(prefecture: prefecture) {
-            
         case .hokkaido:
             return layerHokkaido
         case .tohoku:
@@ -307,9 +277,7 @@ public enum AMJMPrefecture {
     
     //MARK:Public Method
     public func setStrokeColor(color: UIColor, prefecture: AMJMPrefecture) {
-        
         guard let targetLayer = getRegionLayer(prefecture: prefecture) else {
-            
             return
         }
         
@@ -317,13 +285,10 @@ public enum AMJMPrefecture {
     }
     
     public func setFillColor(color: UIColor, prefecture: AMJMPrefecture) {
-        
         guard let targetLayer = getRegionLayer(prefecture: prefecture) else {
-            
             return
         }
         
         targetLayer.setFillColor(color: color, prefecture: prefecture)
     }
 }
-

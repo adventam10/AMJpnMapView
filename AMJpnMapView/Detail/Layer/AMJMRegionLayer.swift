@@ -12,7 +12,6 @@ class AMJMRegionLayer: CAShapeLayer {
 
     var prefectureTypes: [AMJMPrefecture] {
         get {
-            
             return [AMJMPrefecture]()
         }
     }
@@ -23,16 +22,11 @@ class AMJMRegionLayer: CAShapeLayer {
     var mapFillColor:UIColor = UIColor.green
     
     func createLayer(pointList: [CGPoint]) -> CAShapeLayer {
-        
         let path = UIBezierPath()
         for (index, point) in pointList.enumerated() {
-            
             if index == 0 {
-                
                 path.move(to: point)
-                
             } else {
-                
                 path.addLine(to: point)
             }
         }
@@ -47,20 +41,16 @@ class AMJMRegionLayer: CAShapeLayer {
     }
     
     func createPoint(x: CGFloat, y: CGFloat) -> CGPoint {
-        
         return CGPoint(x: mapSize * (x/500.0), y: mapSize * (y/500.0))
     }
     
     func drawMap(rect: CGRect) {
-        
         mapSize = (rect.width < rect.height) ? rect.width : rect.height
         frame = rect
     }
     
     func setStrokeColor(color: UIColor, prefecture: AMJMPrefecture) {
-        
         guard let index = prefectureTypes.firstIndex(of: prefecture) else {
-            
             return
         }
         
@@ -69,9 +59,7 @@ class AMJMRegionLayer: CAShapeLayer {
     }
     
     func setFillColor(color: UIColor, prefecture: AMJMPrefecture) {
-        
         guard let index = prefectureTypes.firstIndex(of: prefecture) else {
-            
             return
         }
         
