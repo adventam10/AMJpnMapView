@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, AMJpnMapViewDelegate {
+class ViewController: UIViewController {
 
     @IBOutlet weak var jView1: AMJpnMapView!
     @IBOutlet weak var jView2: AMJpnMapView!
@@ -28,7 +28,6 @@ class ViewController: UIViewController, AMJpnMapViewDelegate {
     }
 
     override func viewDidAppear(_ animated: Bool) {
-        
         super.viewDidAppear(animated)
         jView3.setFillColor(color: UIColor.blue, region: .hokkaido)
         jView3.setFillColor(color: UIColor.purple, region: .tohoku)
@@ -48,33 +47,26 @@ class ViewController: UIViewController, AMJpnMapViewDelegate {
         jView3.setStrokeColor(color: UIColor.clear, region: .shikoku)
         jView3.setStrokeColor(color: UIColor.clear, region: .kyushu)
     }
-    
-    func jpnMapView(jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion) {
-        
-        if jpnMapView == jView1 {
+}
 
+extension ViewController: AMJpnMapViewDelegate {
+    func jpnMapView(_ jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion) {
+        if jpnMapView == jView1 {
             jpnMapView.setStrokeColor(color: UIColor.black, region: region)
             jpnMapView.setScale(scale: 3.0, region: region)
-
         } else {
-
             jpnMapView.setFillColor(color: UIColor.red, region: region)
             jpnMapView.setStrokeColor(color: UIColor.red, region: region)
         }
     }
     
-    func jpnMapView(jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMJMRegion) {
-        
+    func jpnMapView(_ jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMJMRegion) {
         if jpnMapView == jView1 {
-            
             jpnMapView.setStrokeColor(color: UIColor.green, region: region)
             jpnMapView.setScale(scale: 1.0, region: region)
-            
         } else {
-            
             jpnMapView.setFillColor(color: UIColor.green, region: region)
             jpnMapView.setStrokeColor(color: UIColor.green, region: region)
         }
     }
 }
-

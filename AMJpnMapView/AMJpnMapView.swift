@@ -43,8 +43,8 @@ public enum AMJMRegion: Int {
 }
 
 public protocol AMJpnMapViewDelegate: class {
-    func jpnMapView(jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion)
-    func jpnMapView(jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMJMRegion)
+    func jpnMapView(_ jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion)
+    func jpnMapView(_ jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMJMRegion)
 }
 
 @IBDesignable public class AMJpnMapView: UIView {
@@ -134,7 +134,7 @@ public protocol AMJpnMapViewDelegate: class {
                 } else {
                     preSelectRegion = preSelectRegion.convert(index: index)
                     layer.zPosition = 1
-                    delegate?.jpnMapView(jpnMapView: self, didSelectAtRegion: preSelectRegion)
+                    delegate?.jpnMapView(self, didSelectAtRegion: preSelectRegion)
                 }
                 break
             }
@@ -153,7 +153,7 @@ public protocol AMJpnMapViewDelegate: class {
         
         let layer = regionLayers[preSelectRegion.rawValue]
         layer.zPosition = -1
-        delegate?.jpnMapView(jpnMapView: self, didDeselectAtRegion: preSelectRegion)
+        delegate?.jpnMapView(self, didDeselectAtRegion: preSelectRegion)
     }
     
     private func reloadMap() {

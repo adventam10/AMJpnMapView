@@ -13,7 +13,6 @@ class SecondViewController: UIViewController {
     @IBOutlet weak var detailView: AMJpnMapDetailView!
     
     @IBAction private func tappedBackButton(_ sender: Any) {
-        
         dismiss(animated: true, completion: nil)
     }
     
@@ -30,7 +29,6 @@ class SecondViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         super.viewDidAppear(animated)
         detailView.setFillColor(color: UIColor.red, prefecture: .hokkaido)
         detailView.setFillColor(color: UIColor.blue, prefecture: .aomori)
