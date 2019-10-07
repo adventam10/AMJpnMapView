@@ -42,7 +42,7 @@ public enum AMJMRegion: Int {
     }
 }
 
-public protocol AMJpnMapViewDelegate: class {
+public protocol AMJpnMapViewDelegate: AnyObject {
     func jpnMapView(_ jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion)
     func jpnMapView(_ jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMJMRegion)
 }
@@ -57,43 +57,27 @@ public protocol AMJpnMapViewDelegate: class {
         }
     }
     
-    weak public var delegate:AMJpnMapViewDelegate?
+    weak public var delegate: AMJpnMapViewDelegate?
+    @IBInspectable public var strokeColor: UIColor = .green
+    @IBInspectable public var fillColor: UIColor = .green
+    @IBInspectable public var strokeColorOkinawaLine: UIColor = .black
     
-    @IBInspectable public var strokeColor:UIColor = UIColor.green
-    
-    @IBInspectable public var fillColor:UIColor = UIColor.green
-    
-    @IBInspectable public var strokeColorOkinawaLine:UIColor = UIColor.black
-    
-    private var mapSize:CGFloat = 0
-    
-    private var layerHokkaido:CAShapeLayer?
-    
-    private var layerTohoku:CAShapeLayer?
-
-    private var layerKanto:CAShapeLayer?
-    
-    private var layerChubu:CAShapeLayer?
-    
-    private var layerKinki:CAShapeLayer?
-    
-    private var layerChugoku:CAShapeLayer?
-    
-    private var layerShikoku:CAShapeLayer?
-    
-    private var layerKyushu:CAShapeLayer?
-    
-    private var layerOkinawa:CAShapeLayer?
-    
+    private var mapSize: CGFloat = 0
+    private var layerHokkaido: CAShapeLayer?
+    private var layerTohoku: CAShapeLayer?
+    private var layerKanto: CAShapeLayer?
+    private var layerChubu: CAShapeLayer?
+    private var layerKinki: CAShapeLayer?
+    private var layerChugoku: CAShapeLayer?
+    private var layerShikoku: CAShapeLayer?
+    private var layerKyushu: CAShapeLayer?
+    private var layerOkinawa: CAShapeLayer?
     private var anchorPointList = [CGPoint]()
-    
     private var regionLayers = [CAShapeLayer]()
+    private var layerOkinawaLine: CAShapeLayer?
+    private var preSelectRegion: AMJMRegion = .none
     
-    private var layerOkinawaLine:CAShapeLayer?
-    
-    private var preSelectRegion:AMJMRegion = .none
-    
-    //MARK:Initialize
+    //MARK:- Initialize
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
         initView()
@@ -101,12 +85,12 @@ public protocol AMJpnMapViewDelegate: class {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
         initView()
     }
     
     convenience init() {
-        self.init(frame: CGRect.zero)
+        self.init(frame: .zero)
     }
     
     private func initView() {
@@ -120,7 +104,7 @@ public protocol AMJpnMapViewDelegate: class {
         drawMap()
     }
     
-    //MARK:Gesture Action
+    //MARK:- Gesture Action
     @objc func tapAction(gesture: UITapGestureRecognizer) {
         let point = gesture.location(in: self)
         var isMap = false
@@ -161,7 +145,7 @@ public protocol AMJpnMapViewDelegate: class {
         drawMap()
     }
     
-    //MARK:Draw
+    //MARK:- Draw
     private func drawMap() {
         drawHokkaido()
         drawTohoku()
@@ -724,7 +708,7 @@ public protocol AMJpnMapViewDelegate: class {
         return CGPoint(x: centerX/frame.width, y: centerY/frame.height)
     }
     
-    //MARK:Public Method
+    //MARK:- Public Method
     public func setStrokeColor(color: UIColor, region: AMJMRegion) {
         if region == .none {
             return

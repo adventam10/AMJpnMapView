@@ -71,6 +71,9 @@ public enum AMJMPrefecture {
         case kyushu
     }
     
+    @IBInspectable public var strokeColor: UIColor = .green
+    @IBInspectable public var fillColor: UIColor = .green
+    @IBInspectable public var strokeColorOkinawaLine: UIColor = .black
     override public var bounds: CGRect {
         didSet {
             mapSize = (frame.width < frame.height) ? frame.width : frame.height
@@ -79,42 +82,28 @@ public enum AMJMPrefecture {
         }
     }
     
-    @IBInspectable public var strokeColor:UIColor = UIColor.green
+    private var mapSize: CGFloat = 0
+    private var layerHokkaido: AMJMHokkaidoLayer?
+    private var layerTohoku: AMJMTohokuLayer?
+    private var layerKanto: AMJMKantoLayer?
+    private var layerChubu: AMJMChubuLayer?
+    private var layerKinki: AMJMKinkiLayer?
+    private var layerChugoku: AMJMChugokuLayer?
+    private var layerShikoku: AMJMShikokuLayer?
+    private var layerKyushu: AMJMKyushuLayer?
     
-    @IBInspectable public var fillColor:UIColor = UIColor.green
-    
-    @IBInspectable public var strokeColorOkinawaLine:UIColor = UIColor.black
-    
-    private var mapSize:CGFloat = 0
-    
-    private var layerHokkaido:AMJMHokkaidoLayer?
-    
-    private var layerTohoku:AMJMTohokuLayer?
-    
-    private var layerKanto:AMJMKantoLayer?
-    
-    private var layerChubu:AMJMChubuLayer?
-    
-    private var layerKinki:AMJMKinkiLayer?
-    
-    private var layerChugoku:AMJMChugokuLayer?
-    
-    private var layerShikoku:AMJMShikokuLayer?
-    
-    private var layerKyushu:AMJMKyushuLayer?
-    
-    //MARK:Initialize
+    //MARK:- Initialize
     required public init?(coder aDecoder: NSCoder) {
         super.init(coder:aDecoder)
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = UIColor.clear
+        backgroundColor = .clear
     }
     
     convenience init() {
-        self.init(frame: CGRect.zero)
+        self.init(frame: .zero)
     }
     
     override public func draw(_ rect: CGRect) {
@@ -128,7 +117,7 @@ public enum AMJMPrefecture {
         drawMap()
     }
     
-    //MARK:Draw
+    //MARK:- Draw
     private func drawMap() {
         drawHokkaido()
         drawTohoku()
@@ -275,7 +264,7 @@ public enum AMJMPrefecture {
         }
     }
     
-    //MARK:Public Method
+    //MARK:- Public Method
     public func setStrokeColor(color: UIColor, prefecture: AMJMPrefecture) {
         guard let targetLayer = getRegionLayer(prefecture: prefecture) else {
             return
