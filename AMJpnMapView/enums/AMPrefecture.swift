@@ -1,5 +1,5 @@
 //
-//  AMJMPrefecture.swift
+//  AMPrefecture.swift
 //  SampleAMJpnMap
 //
 //  Created by am10 on 2019/10/14.
@@ -8,39 +8,7 @@
 
 import UIKit
 
-public enum AMDRegion {
-    case hokkaido
-    case tohoku
-    case kanto
-    case chubu
-    case kinki
-    case chugoku
-    case shikoku
-    case kyushu
-    
-    var prefectures: [AMJMPrefecture] {
-        switch self {
-        case .hokkaido:
-            return [.hokkaido]
-        case .tohoku:
-            return [.aomori, .iwate, .akita, .miyagi, .yamagata, .fukushima]
-        case .kanto:
-            return [.ibaraki, .chiba, .tochigi, .gunma, .saitama, .tokyo, .kanagawa]
-        case .chubu:
-            return [.niigata, .nagano, .yamanashi, .shizuoka, .aichi, .mie, .gifu, .fukui, .ishikawa, .toyama]
-        case .kinki:
-            return [.shiga, .kyoto, .hyogo, .nara, .wakayama, .osaka]
-        case .chugoku:
-            return [.tottori, .okayama, .hiroshima, .yamaguchi, .shimane]
-        case .shikoku:
-            return [.kagawa, .tokushima, .kochi, .ehime]
-        case .kyushu:
-            return [.fukuoka, .oita, .miyazaki, .kagoshima, .kumamoto, .saga, .nagasaki, .okinawa]
-        }
-    }
-}
-
-public enum AMJMPrefecture {
+public enum AMPrefecture: CaseIterable {
     case hokkaido
     case aomori
     case iwate
@@ -90,7 +58,7 @@ public enum AMJMPrefecture {
     case okinawa
 }
 
-extension AMJMPrefecture {
+extension AMPrefecture {
     var points: [CGPoint] {
         switch self {
         case .hokkaido:

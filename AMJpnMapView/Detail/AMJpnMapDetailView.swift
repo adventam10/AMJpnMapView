@@ -90,7 +90,7 @@ import UIKit
         regionLayers.removeAll()
     }
     
-    private func makeRegionLayer(_ region: AMDRegion) -> AMJMRegionLayer {
+    private func makeRegionLayer(_ region: AMRegion) -> AMJMRegionLayer {
         let regionLayer = AMJMRegionLayer()
         regionLayer.region = region
         regionLayer.mapFillColor = fillColor
@@ -100,17 +100,17 @@ import UIKit
         return regionLayer
     }
    
-    private func regionLayer(for prefecture: AMJMPrefecture) -> AMJMRegionLayer? {
+    private func regionLayer(for prefecture: AMPrefecture) -> AMJMRegionLayer? {
         let index = regionLayers.firstIndex { $0.region.prefectures.contains(prefecture) }
-        return index == nil  ? nil : regionLayers[index!]
+        return index == nil ? nil : regionLayers[index!]
     }
     
     // MARK:- Public Method
-    public func setStrokeColor(color: UIColor, prefecture: AMJMPrefecture) {
+    public func setStrokeColor(color: UIColor, prefecture: AMPrefecture) {
         regionLayer(for: prefecture)?.setStrokeColor(color: color, prefecture: prefecture)
     }
     
-    public func setFillColor(color: UIColor, prefecture: AMJMPrefecture) {
+    public func setFillColor(color: UIColor, prefecture: AMPrefecture) {
         regionLayer(for: prefecture)?.setFillColor(color: color, prefecture: prefecture)
     }
 }

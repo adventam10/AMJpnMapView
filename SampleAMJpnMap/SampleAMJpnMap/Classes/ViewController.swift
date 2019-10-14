@@ -22,51 +22,39 @@ class ViewController: UIViewController {
         jView2.delegate = self
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        jView3.setFillColor(color: UIColor.blue, region: .hokkaido)
-        jView3.setFillColor(color: UIColor.purple, region: .tohoku)
-        jView3.setFillColor(color: UIColor.red, region: .kanto)
-        jView3.setFillColor(color: UIColor.orange, region: .chubu)
-        jView3.setFillColor(color: UIColor.green, region: .kinki)
-        jView3.setFillColor(color: UIColor.yellow, region: .chugoku)
-        jView3.setFillColor(color: UIColor.magenta, region: .shikoku)
-        jView3.setFillColor(color: UIColor.cyan, region: .kyushu)
+        jView3.setFillColor(color: .blue, region: .hokkaido)
+        jView3.setFillColor(color: .purple, region: .tohoku)
+        jView3.setFillColor(color: .red, region: .kanto)
+        jView3.setFillColor(color: .orange, region: .chubu)
+        jView3.setFillColor(color: .green, region: .kinki)
+        jView3.setFillColor(color: .yellow, region: .chugoku)
+        jView3.setFillColor(color: .magenta, region: .shikoku)
+        jView3.setFillColor(color: .cyan, region: .kyushu)
         
-        jView3.setStrokeColor(color: UIColor.clear, region: .hokkaido)
-        jView3.setStrokeColor(color: UIColor.clear, region: .tohoku)
-        jView3.setStrokeColor(color: UIColor.clear, region: .kanto)
-        jView3.setStrokeColor(color: UIColor.clear, region: .chubu)
-        jView3.setStrokeColor(color: UIColor.clear, region: .kinki)
-        jView3.setStrokeColor(color: UIColor.clear, region: .chugoku)
-        jView3.setStrokeColor(color: UIColor.clear, region: .shikoku)
-        jView3.setStrokeColor(color: UIColor.clear, region: .kyushu)
+        AMRegion.allCases.forEach { jView3.setStrokeColor(color: .clear, region: $0) }
     }
 }
 
 extension ViewController: AMJpnMapViewDelegate {
-    func jpnMapView(_ jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion) {
+    func jpnMapView(_ jpnMapView: AMJpnMapView, didSelectAtRegion region: AMRegion) {
         if jpnMapView == jView1 {
-            jpnMapView.setStrokeColor(color: UIColor.black, region: region)
+            jpnMapView.setStrokeColor(color: .black, region: region)
             jpnMapView.setScale(scale: 3.0, region: region)
         } else {
-            jpnMapView.setFillColor(color: UIColor.red, region: region)
-            jpnMapView.setStrokeColor(color: UIColor.red, region: region)
+            jpnMapView.setFillColor(color: .red, region: region)
+            jpnMapView.setStrokeColor(color: .red, region: region)
         }
     }
     
-    func jpnMapView(_ jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMJMRegion) {
+    func jpnMapView(_ jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMRegion) {
         if jpnMapView == jView1 {
-            jpnMapView.setStrokeColor(color: UIColor.green, region: region)
+            jpnMapView.setStrokeColor(color: .green, region: region)
             jpnMapView.setScale(scale: 1.0, region: region)
         } else {
-            jpnMapView.setFillColor(color: UIColor.green, region: region)
-            jpnMapView.setStrokeColor(color: UIColor.green, region: region)
+            jpnMapView.setFillColor(color: .green, region: region)
+            jpnMapView.setStrokeColor(color: .green, region: region)
         }
     }
 }

@@ -10,7 +10,7 @@ import UIKit
 
 class AMJMRegionLayer: CAShapeLayer {
 
-    var region: AMDRegion = .hokkaido
+    var region: AMRegion = .hokkaido
     var mapStrokeColor: UIColor = .green
     var mapFillColor: UIColor = .green
     var strokeColorOkinawaLine: UIColor = .black {
@@ -53,7 +53,7 @@ class AMJMRegionLayer: CAShapeLayer {
         return layerOkinawaLine
     }
     
-    private func prefectureLayer(for prefecture: AMJMPrefecture) -> CAShapeLayer? {
+    private func prefectureLayer(for prefecture: AMPrefecture) -> CAShapeLayer? {
         guard let index = region.prefectures.firstIndex(of: prefecture) else {
             return nil
         }
@@ -75,11 +75,11 @@ class AMJMRegionLayer: CAShapeLayer {
         }
     }
     
-    func setStrokeColor(color: UIColor, prefecture: AMJMPrefecture) {
+    func setStrokeColor(color: UIColor, prefecture: AMPrefecture) {
         prefectureLayer(for: prefecture)?.strokeColor = color.cgColor
     }
     
-    func setFillColor(color: UIColor, prefecture: AMJMPrefecture) {
+    func setFillColor(color: UIColor, prefecture: AMPrefecture) {
         prefectureLayer(for: prefecture)?.fillColor = color.cgColor
     }
 }
