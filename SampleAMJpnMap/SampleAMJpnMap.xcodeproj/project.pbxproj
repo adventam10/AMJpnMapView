@@ -7,40 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E407A33235428210096FA4A /* AMJMPrefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E407A32235428210096FA4A /* AMJMPrefecture.swift */; };
 		0E5805DB2026F29A00500483 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805D82026F29A00500483 /* AppDelegate.swift */; };
 		0E5805DC2026F29A00500483 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805D92026F29A00500483 /* SecondViewController.swift */; };
 		0E5805DD2026F29A00500483 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805DA2026F29A00500483 /* ViewController.swift */; };
 		0E5805EC2026F2A900500483 /* AMJpnMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805DF2026F2A900500483 /* AMJpnMapView.swift */; };
 		0E5805ED2026F2A900500483 /* AMJpnMapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805E12026F2A900500483 /* AMJpnMapDetailView.swift */; };
-		0E5805EE2026F2A900500483 /* AMJMChubuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805E32026F2A900500483 /* AMJMChubuLayer.swift */; };
-		0E5805EF2026F2A900500483 /* AMJMChugokuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805E42026F2A900500483 /* AMJMChugokuLayer.swift */; };
-		0E5805F02026F2A900500483 /* AMJMHokkaidoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805E52026F2A900500483 /* AMJMHokkaidoLayer.swift */; };
-		0E5805F12026F2A900500483 /* AMJMKantoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805E62026F2A900500483 /* AMJMKantoLayer.swift */; };
-		0E5805F22026F2A900500483 /* AMJMKinkiLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805E72026F2A900500483 /* AMJMKinkiLayer.swift */; };
-		0E5805F32026F2A900500483 /* AMJMKyushuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805E82026F2A900500483 /* AMJMKyushuLayer.swift */; };
 		0E5805F42026F2A900500483 /* AMJMRegionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805E92026F2A900500483 /* AMJMRegionLayer.swift */; };
-		0E5805F52026F2A900500483 /* AMJMShikokuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805EA2026F2A900500483 /* AMJMShikokuLayer.swift */; };
-		0E5805F62026F2A900500483 /* AMJMTohokuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5805EB2026F2A900500483 /* AMJMTohokuLayer.swift */; };
 		0E9A08BB2003774B00DD65DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9A08B92003774B00DD65DB /* Main.storyboard */; };
 		0E9A08BD2003774B00DD65DB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0E9A08BC2003774B00DD65DB /* Assets.xcassets */; };
 		0E9A08C02003774B00DD65DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E9A08BE2003774B00DD65DB /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E407A32235428210096FA4A /* AMJMPrefecture.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMJMPrefecture.swift; sourceTree = "<group>"; };
 		0E5805D82026F29A00500483 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0E5805D92026F29A00500483 /* SecondViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		0E5805DA2026F29A00500483 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		0E5805DF2026F2A900500483 /* AMJpnMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJpnMapView.swift; sourceTree = "<group>"; };
 		0E5805E12026F2A900500483 /* AMJpnMapDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJpnMapDetailView.swift; sourceTree = "<group>"; };
-		0E5805E32026F2A900500483 /* AMJMChubuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMChubuLayer.swift; sourceTree = "<group>"; };
-		0E5805E42026F2A900500483 /* AMJMChugokuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMChugokuLayer.swift; sourceTree = "<group>"; };
-		0E5805E52026F2A900500483 /* AMJMHokkaidoLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMHokkaidoLayer.swift; sourceTree = "<group>"; };
-		0E5805E62026F2A900500483 /* AMJMKantoLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMKantoLayer.swift; sourceTree = "<group>"; };
-		0E5805E72026F2A900500483 /* AMJMKinkiLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMKinkiLayer.swift; sourceTree = "<group>"; };
-		0E5805E82026F2A900500483 /* AMJMKyushuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMKyushuLayer.swift; sourceTree = "<group>"; };
 		0E5805E92026F2A900500483 /* AMJMRegionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMRegionLayer.swift; sourceTree = "<group>"; };
-		0E5805EA2026F2A900500483 /* AMJMShikokuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMShikokuLayer.swift; sourceTree = "<group>"; };
-		0E5805EB2026F2A900500483 /* AMJMTohokuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMTohokuLayer.swift; sourceTree = "<group>"; };
 		0E9A08B22003774B00DD65DB /* SampleAMJpnMap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SampleAMJpnMap.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E9A08BA2003774B00DD65DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0E9A08BC2003774B00DD65DB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -92,15 +78,8 @@
 		0E5805E22026F2A900500483 /* Layer */ = {
 			isa = PBXGroup;
 			children = (
-				0E5805E32026F2A900500483 /* AMJMChubuLayer.swift */,
-				0E5805E42026F2A900500483 /* AMJMChugokuLayer.swift */,
-				0E5805E52026F2A900500483 /* AMJMHokkaidoLayer.swift */,
-				0E5805E62026F2A900500483 /* AMJMKantoLayer.swift */,
-				0E5805E72026F2A900500483 /* AMJMKinkiLayer.swift */,
-				0E5805E82026F2A900500483 /* AMJMKyushuLayer.swift */,
 				0E5805E92026F2A900500483 /* AMJMRegionLayer.swift */,
-				0E5805EA2026F2A900500483 /* AMJMShikokuLayer.swift */,
-				0E5805EB2026F2A900500483 /* AMJMTohokuLayer.swift */,
+				0E407A32235428210096FA4A /* AMJMPrefecture.swift */,
 			);
 			path = Layer;
 			sourceTree = "<group>";
@@ -206,18 +185,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E5805F52026F2A900500483 /* AMJMShikokuLayer.swift in Sources */,
-				0E5805EE2026F2A900500483 /* AMJMChubuLayer.swift in Sources */,
-				0E5805F62026F2A900500483 /* AMJMTohokuLayer.swift in Sources */,
-				0E5805F12026F2A900500483 /* AMJMKantoLayer.swift in Sources */,
-				0E5805EF2026F2A900500483 /* AMJMChugokuLayer.swift in Sources */,
-				0E5805F22026F2A900500483 /* AMJMKinkiLayer.swift in Sources */,
 				0E5805EC2026F2A900500483 /* AMJpnMapView.swift in Sources */,
-				0E5805F32026F2A900500483 /* AMJMKyushuLayer.swift in Sources */,
 				0E5805DD2026F29A00500483 /* ViewController.swift in Sources */,
 				0E5805DC2026F29A00500483 /* SecondViewController.swift in Sources */,
+				0E407A33235428210096FA4A /* AMJMPrefecture.swift in Sources */,
 				0E5805ED2026F2A900500483 /* AMJpnMapDetailView.swift in Sources */,
-				0E5805F02026F2A900500483 /* AMJMHokkaidoLayer.swift in Sources */,
 				0E5805F42026F2A900500483 /* AMJMRegionLayer.swift in Sources */,
 				0E5805DB2026F29A00500483 /* AppDelegate.swift in Sources */,
 			);
