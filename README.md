@@ -37,7 +37,7 @@ view.addSubview(jpnMapView)
 Conform to the protocol in the class implementation.
 
 ```swift
-func jpnMapView(_ jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion) { 
+func jpnMapView(_ jpnMapView: AMJpnMapView, didSelectAtRegion region: AMRegion) { 
     // use selected region here
   
     // example 1 (like Fig.1)
@@ -49,7 +49,7 @@ func jpnMapView(_ jpnMapView: AMJpnMapView, didSelectAtRegion region: AMJMRegion
     jpnMapView.setStrokeColor(color: .red, region: region)
 }
 
-func jpnMapView(_ jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMJMRegion) {
+func jpnMapView(_ jpnMapView: AMJpnMapView, didDeselectAtRegion region: AMRegion) {
     // use deselected region here
     
     // example 1 (like Fig.1)
@@ -93,8 +93,8 @@ view.addSubview(jpnMapView)
 Set colors.
 
 ```swift
-public func setStrokeColor(color: UIColor, prefecture: AMJMPrefecture)
-public func setFillColor(color: UIColor, prefecture: AMJMPrefecture)
+public func setStrokeColor(color: UIColor, prefecture: AMPrefecture)
+public func setFillColor(color: UIColor, prefecture: AMPrefecture)
 ```
 
 ## Installation
