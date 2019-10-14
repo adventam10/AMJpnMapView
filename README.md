@@ -4,6 +4,7 @@
 ![Pod License](https://img.shields.io/cocoapods/l/AMJpnMap.svg?style=flat)
 [![Pod Version](https://img.shields.io/cocoapods/v/AMJpnMap.svg?style=flat)](http://cocoapods.org/pods/AMJpnMap)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
+[![Swift Package Manager compatible](https://img.shields.io/badge/Swift%20Package%20Manager-compatible-brightgreen.svg)](https://github.com/apple/swift-package-manager)
 
 It can display a simple map of Japan.
 
