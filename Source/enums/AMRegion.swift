@@ -1,9 +1,9 @@
 //
 //  AMRegion.swift
-//  SampleAMJpnMap
+//  AMJpnMap, https://github.com/adventam10/AMJpnMapView
 //
 //  Created by am10 on 2019/10/14.
-//  Copyright © 2019 am10. All rights reserved.
+//  Copyright © 2019年 am10. All rights reserved.
 //
 
 import UIKit

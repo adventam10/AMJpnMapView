@@ -8,34 +8,22 @@
 
 /* Begin PBXBuildFile section */
 		0E5806062026F2EB00500483 /* AMJpnMap.h in Headers */ = {isa = PBXBuildFile; fileRef = 0E5806042026F2EB00500483 /* AMJpnMap.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		0E58061A2026F37000500483 /* AMJpnMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E58060D2026F37000500483 /* AMJpnMapView.swift */; };
-		0E58061B2026F37000500483 /* AMJpnMapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E58060F2026F37000500483 /* AMJpnMapDetailView.swift */; };
-		0E58061C2026F37000500483 /* AMJMChubuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5806112026F37000500483 /* AMJMChubuLayer.swift */; };
-		0E58061D2026F37000500483 /* AMJMChugokuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5806122026F37000500483 /* AMJMChugokuLayer.swift */; };
-		0E58061E2026F37000500483 /* AMJMHokkaidoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5806132026F37000500483 /* AMJMHokkaidoLayer.swift */; };
-		0E58061F2026F37000500483 /* AMJMKantoLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5806142026F37000500483 /* AMJMKantoLayer.swift */; };
-		0E5806202026F37000500483 /* AMJMKinkiLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5806152026F37000500483 /* AMJMKinkiLayer.swift */; };
-		0E5806212026F37000500483 /* AMJMKyushuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5806162026F37000500483 /* AMJMKyushuLayer.swift */; };
-		0E5806222026F37000500483 /* AMJMRegionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5806172026F37000500483 /* AMJMRegionLayer.swift */; };
-		0E5806232026F37000500483 /* AMJMShikokuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5806182026F37000500483 /* AMJMShikokuLayer.swift */; };
-		0E5806242026F37000500483 /* AMJMTohokuLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E5806192026F37000500483 /* AMJMTohokuLayer.swift */; };
+		0EB234BF2354879F00442A85 /* AMRegion.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB234B92354879F00442A85 /* AMRegion.swift */; };
+		0EB234C02354879F00442A85 /* AMPrefecture.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB234BA2354879F00442A85 /* AMPrefecture.swift */; };
+		0EB234C12354879F00442A85 /* AMJpnMapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB234BB2354879F00442A85 /* AMJpnMapView.swift */; };
+		0EB234C22354879F00442A85 /* AMJpnMapDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB234BD2354879F00442A85 /* AMJpnMapDetailView.swift */; };
+		0EB234C32354879F00442A85 /* AMJMRegionLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EB234BE2354879F00442A85 /* AMJMRegionLayer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		0E5806012026F2EB00500483 /* AMJpnMap.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AMJpnMap.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0E5806042026F2EB00500483 /* AMJpnMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AMJpnMap.h; sourceTree = "<group>"; };
 		0E5806052026F2EB00500483 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		0E58060D2026F37000500483 /* AMJpnMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJpnMapView.swift; sourceTree = "<group>"; };
-		0E58060F2026F37000500483 /* AMJpnMapDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJpnMapDetailView.swift; sourceTree = "<group>"; };
-		0E5806112026F37000500483 /* AMJMChubuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMChubuLayer.swift; sourceTree = "<group>"; };
-		0E5806122026F37000500483 /* AMJMChugokuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMChugokuLayer.swift; sourceTree = "<group>"; };
-		0E5806132026F37000500483 /* AMJMHokkaidoLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMHokkaidoLayer.swift; sourceTree = "<group>"; };
-		0E5806142026F37000500483 /* AMJMKantoLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMKantoLayer.swift; sourceTree = "<group>"; };
-		0E5806152026F37000500483 /* AMJMKinkiLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMKinkiLayer.swift; sourceTree = "<group>"; };
-		0E5806162026F37000500483 /* AMJMKyushuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMKyushuLayer.swift; sourceTree = "<group>"; };
-		0E5806172026F37000500483 /* AMJMRegionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMRegionLayer.swift; sourceTree = "<group>"; };
-		0E5806182026F37000500483 /* AMJMShikokuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMShikokuLayer.swift; sourceTree = "<group>"; };
-		0E5806192026F37000500483 /* AMJMTohokuLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMTohokuLayer.swift; sourceTree = "<group>"; };
+		0EB234B92354879F00442A85 /* AMRegion.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMRegion.swift; sourceTree = "<group>"; };
+		0EB234BA2354879F00442A85 /* AMPrefecture.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMPrefecture.swift; sourceTree = "<group>"; };
+		0EB234BB2354879F00442A85 /* AMJpnMapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJpnMapView.swift; sourceTree = "<group>"; };
+		0EB234BD2354879F00442A85 /* AMJpnMapDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJpnMapDetailView.swift; sourceTree = "<group>"; };
+		0EB234BE2354879F00442A85 /* AMJMRegionLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AMJMRegionLayer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +40,7 @@
 		0E5805F72026F2EB00500483 = {
 			isa = PBXGroup;
 			children = (
+				0EB234B72354879F00442A85 /* Source */,
 				0E5806032026F2EB00500483 /* AMJpnMap */,
 				0E5806022026F2EB00500483 /* Products */,
 			);
@@ -68,45 +57,38 @@
 		0E5806032026F2EB00500483 /* AMJpnMap */ = {
 			isa = PBXGroup;
 			children = (
-				0E58060C2026F37000500483 /* AMJpnMapView */,
 				0E5806042026F2EB00500483 /* AMJpnMap.h */,
 				0E5806052026F2EB00500483 /* Info.plist */,
 			);
 			path = AMJpnMap;
 			sourceTree = "<group>";
 		};
-		0E58060C2026F37000500483 /* AMJpnMapView */ = {
+		0EB234B72354879F00442A85 /* Source */ = {
 			isa = PBXGroup;
 			children = (
-				0E58060D2026F37000500483 /* AMJpnMapView.swift */,
-				0E58060E2026F37000500483 /* Detail */,
+				0EB234B82354879F00442A85 /* enums */,
+				0EB234BB2354879F00442A85 /* AMJpnMapView.swift */,
+				0EB234BC2354879F00442A85 /* Detail */,
 			);
-			path = AMJpnMapView;
-			sourceTree = SOURCE_ROOT;
-		};
-		0E58060E2026F37000500483 /* Detail */ = {
-			isa = PBXGroup;
-			children = (
-				0E58060F2026F37000500483 /* AMJpnMapDetailView.swift */,
-				0E5806102026F37000500483 /* Layer */,
-			);
-			path = Detail;
+			path = Source;
 			sourceTree = "<group>";
 		};
-		0E5806102026F37000500483 /* Layer */ = {
+		0EB234B82354879F00442A85 /* enums */ = {
 			isa = PBXGroup;
 			children = (
-				0E5806112026F37000500483 /* AMJMChubuLayer.swift */,
-				0E5806122026F37000500483 /* AMJMChugokuLayer.swift */,
-				0E5806132026F37000500483 /* AMJMHokkaidoLayer.swift */,
-				0E5806142026F37000500483 /* AMJMKantoLayer.swift */,
-				0E5806152026F37000500483 /* AMJMKinkiLayer.swift */,
-				0E5806162026F37000500483 /* AMJMKyushuLayer.swift */,
-				0E5806172026F37000500483 /* AMJMRegionLayer.swift */,
-				0E5806182026F37000500483 /* AMJMShikokuLayer.swift */,
-				0E5806192026F37000500483 /* AMJMTohokuLayer.swift */,
+				0EB234B92354879F00442A85 /* AMRegion.swift */,
+				0EB234BA2354879F00442A85 /* AMPrefecture.swift */,
 			);
-			path = Layer;
+			path = enums;
+			sourceTree = "<group>";
+		};
+		0EB234BC2354879F00442A85 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				0EB234BD2354879F00442A85 /* AMJpnMapDetailView.swift */,
+				0EB234BE2354879F00442A85 /* AMJMRegionLayer.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -190,17 +172,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0E58061C2026F37000500483 /* AMJMChubuLayer.swift in Sources */,
-				0E5806222026F37000500483 /* AMJMRegionLayer.swift in Sources */,
-				0E58061D2026F37000500483 /* AMJMChugokuLayer.swift in Sources */,
-				0E5806232026F37000500483 /* AMJMShikokuLayer.swift in Sources */,
-				0E58061A2026F37000500483 /* AMJpnMapView.swift in Sources */,
-				0E5806212026F37000500483 /* AMJMKyushuLayer.swift in Sources */,
-				0E5806202026F37000500483 /* AMJMKinkiLayer.swift in Sources */,
-				0E58061E2026F37000500483 /* AMJMHokkaidoLayer.swift in Sources */,
-				0E5806242026F37000500483 /* AMJMTohokuLayer.swift in Sources */,
-				0E58061F2026F37000500483 /* AMJMKantoLayer.swift in Sources */,
-				0E58061B2026F37000500483 /* AMJpnMapDetailView.swift in Sources */,
+				0EB234C32354879F00442A85 /* AMJMRegionLayer.swift in Sources */,
+				0EB234C02354879F00442A85 /* AMPrefecture.swift in Sources */,
+				0EB234C22354879F00442A85 /* AMJpnMapDetailView.swift in Sources */,
+				0EB234BF2354879F00442A85 /* AMRegion.swift in Sources */,
+				0EB234C12354879F00442A85 /* AMJpnMapView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

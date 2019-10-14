@@ -1,6 +1,6 @@
 //
 //  AMJMRegionLayer.swift
-//  SampleAMJpnMap
+//  AMJpnMap, https://github.com/adventam10/AMJpnMapView
 //
 //  Created by am10 on 2018/01/20.
 //  Copyright © 2018年 am10. All rights reserved.
