@@ -11,8 +11,8 @@ import UIKit
 class AMJMRegionLayer: CAShapeLayer {
 
     var region: AMRegion = .hokkaido
-    var mapStrokeColor: UIColor = .green
-    var mapFillColor: UIColor = .green
+    var strokeColors: [AMPrefecture: UIColor] = [:]
+    var fillColors: [AMPrefecture: UIColor] = [:]
     var strokeColorOkinawaLine: UIColor = .black {
         didSet{
             layerOkinawaLine?.strokeColor = strokeColorOkinawaLine.cgColor
@@ -23,7 +23,7 @@ class AMJMRegionLayer: CAShapeLayer {
     private var layerOkinawaLine: CAShapeLayer?
     private var prefectureLayers = [CAShapeLayer]()
     
-    private func makeLayer(points: [CGPoint]) -> CAShapeLayer {
+    private func makeLayer(_ prefecture: AMPrefecture, points: [CGPoint]) -> CAShapeLayer {
         let path = UIBezierPath()
         path.move(to: points.first!)
         points[1..<points.count].forEach { path.addLine(to: $0) }
@@ -32,8 +32,8 @@ class AMJMRegionLayer: CAShapeLayer {
         let layer = CAShapeLayer()
         layer.frame = bounds
         layer.path = path.cgPath
-        layer.strokeColor = mapStrokeColor.cgColor
-        layer.fillColor = mapFillColor.cgColor
+        layer.strokeColor = strokeColors[prefecture]!.cgColor
+        layer.fillColor = fillColors[prefecture]!.cgColor
         return layer
     }
     
@@ -64,7 +64,7 @@ class AMJMRegionLayer: CAShapeLayer {
         mapSize = (rect.width < rect.height) ? rect.width : rect.height
         frame = rect
         region.prefectures.forEach { prefecture in
-            let layer = makeLayer(points: prefecture.points.map { makePoint(x: $0.x, y: $0.y) })
+            let layer = makeLayer(prefecture, points: prefecture.points.map { makePoint(x: $0.x, y: $0.y) })
             addSublayer(layer)
             prefectureLayers.append(layer)
             if prefecture == .okinawa {
@@ -76,10 +76,12 @@ class AMJMRegionLayer: CAShapeLayer {
     }
     
     func setStrokeColor(color: UIColor, prefecture: AMPrefecture) {
+        strokeColors[prefecture] = color
         prefectureLayer(for: prefecture)?.strokeColor = color.cgColor
     }
     
     func setFillColor(color: UIColor, prefecture: AMPrefecture) {
+        fillColors[prefecture] = color
         prefectureLayer(for: prefecture)?.fillColor = color.cgColor
     }
 }

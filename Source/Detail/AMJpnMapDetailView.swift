@@ -10,18 +10,31 @@ import UIKit
 
 @IBDesignable public class AMJpnMapDetailView: UIView {
     
-    @IBInspectable public var strokeColor: UIColor = .green
-    @IBInspectable public var fillColor: UIColor = .green
+    @IBInspectable public var strokeColor: UIColor = .green {
+        didSet {
+            AMPrefecture.allCases.forEach {
+                strokeColors[$0] = strokeColor
+            }
+        }
+    }
+    @IBInspectable public var fillColor: UIColor = .green {
+        didSet {
+            AMPrefecture.allCases.forEach {
+                fillColors[$0] = fillColor
+            }
+        }
+    }
     @IBInspectable public var strokeColorOkinawaLine: UIColor = .black
     
     override public var bounds: CGRect {
         didSet {
             mapSize = (frame.width < frame.height) ? frame.width : frame.height
-            clear()
-            drawMap()
+            reloadMap()
         }
     }
     
+    private var strokeColors: [AMPrefecture: UIColor] = [:]
+    private var fillColors: [AMPrefecture: UIColor] = [:]
     private var mapSize: CGFloat = 0
     private var regionLayers = [AMJMRegionLayer]()
     
@@ -41,8 +54,7 @@ import UIKit
     
     override public func draw(_ rect: CGRect) {
         mapSize = (rect.width < rect.height) ? rect.width : rect.height
-        clear()
-        drawMap()
+        reloadMap()
     }
     
     private func reloadMap() {
@@ -93,8 +105,8 @@ import UIKit
     private func makeRegionLayer(_ region: AMRegion) -> AMJMRegionLayer {
         let regionLayer = AMJMRegionLayer()
         regionLayer.region = region
-        regionLayer.mapFillColor = fillColor
-        regionLayer.mapStrokeColor = strokeColor
+        regionLayer.fillColors = fillColors
+        regionLayer.strokeColors = strokeColors
         regionLayer.strokeColorOkinawaLine = strokeColorOkinawaLine
         regionLayer.drawMap(rect: bounds)
         return regionLayer
@@ -107,10 +119,12 @@ import UIKit
     
     // MARK:- Public Method
     public func setStrokeColor(color: UIColor, prefecture: AMPrefecture) {
+        strokeColors[prefecture] = color
         regionLayer(for: prefecture)?.setStrokeColor(color: color, prefecture: prefecture)
     }
     
     public func setFillColor(color: UIColor, prefecture: AMPrefecture) {
+        fillColors[prefecture] = color
         regionLayer(for: prefecture)?.setFillColor(color: color, prefecture: prefecture)
     }
 }
